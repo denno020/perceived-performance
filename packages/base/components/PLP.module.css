@@ -1,0 +1,15 @@
+.header {
+    min-height: 200px;
+    max-width: var(--max-width);
+    margin: 0 auto 30px;
+    background-color: whitesmoke;
+    padding: 30px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}

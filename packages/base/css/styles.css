@@ -1,0 +1,150 @@
+:root {
+  --max-width: 1440px;
+  --bg-color: #0b066d;
+  --body-font: Ysabeau, sans-serif;
+  --heading-font: Philosopher, sans-serif;
+}
+
+body {
+  font-family: var(--body-font);
+  margin: 0;
+  min-height: 100vh;
+  /*background: var(--bg-color);*/
+}
+
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  padding: 20px;
+  background-color: slategray;
+  /*color: white;*/
+}
+
+a {
+  color: slategray;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+header a {
+  /*color: white;*/
+}
+
+button {
+  cursor: pointer;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+.product-card__image-container {
+  height: 205px;
+  width: auto;
+  overflow: hidden;
+}
+
+.product-card--skeleton .product-card__image-container {
+  width: 240px;
+  background-color: purple;
+}
+
+.product-card--skeleton .product-card__image-container img {
+  opacity: 0;
+}
+
+.product-card__name {
+  font-size: 1.3em;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.product-card--skeleton .product-card__name {
+  background-color: purple;
+}
+
+.product-card--skeleton .product-card__name a {
+  color: transparent;
+}
+
+.product-card__price {
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.product-card--skeleton .product-card__price {
+  color: transparent;
+  background-color: purple;
+}
+
+.product-card__action--add {
+  border: 0;
+  background-color: slategray;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.3em;
+}
+
+.product-card--skeleton .product-card__action--add {
+  color: transparent;
+  background-color: purple;
+}
+
+.product-card__configurations {
+  display: flex;
+  gap: 10px;
+}
+
+.product-card__configuration {
+  width: 36px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.product-card--skeleton .product-card__configuration {
+  background-color: purple;
+  color: transparent;
+}
+
+.configuration--red {
+  background-color: red;
+  border-color: transparent;
+}
+.configuration--white {
+  background-color: white;
+}
+.configuration--blue {
+  background-color: blue;
+  border-color: transparent;
+}
+.configuration--green {
+  background-color: green;
+  border-color: transparent;
+}
+
+.configuration--yellow {
+  background-color: yellow;
+}
+
+.btn--load {
+  margin: 10px auto;
+  display: block;
+  padding: 5px 20px;
+}
