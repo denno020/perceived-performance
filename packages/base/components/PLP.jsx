@@ -19,6 +19,7 @@ const PLP = () => {
     <React.Fragment>
       <div className={classes.header}>
         Wall Clocks
+        <img className={classes.headerImage} src="/wall-clock-scene.jpg"/>
       </div>
       <ul className={classes.products}>
         {items.length === 0 ? placeholderProducts : items.map((product) => (
