@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './ProductCard.css'
 
 const ProductCard = (props) => {
   const { product, onSelect = () => {}, restorationRef, isSkeleton } = props;
@@ -29,22 +30,6 @@ const ProductCard = (props) => {
         </Link>
       </div>
       <div className="product-card__price">${price}</div>
-      <div className="product-card__configurations">
-        <div className="product-card__configuration configuration--red" />
-        <div className="product-card__configuration configuration--white" />
-        <div className="product-card__configuration configuration--blue" />
-        <div className="product-card__configuration configuration--green" />
-        <div className="product-card__configuration configuration--yellow" />
-      </div>
-      <div className="product-card__configurations">
-        <div className="product-card__configuration">S</div>
-        <div className="product-card__configuration">M</div>
-        <div className="product-card__configuration">L</div>
-        <div className="product-card__configuration">XL</div>
-      </div>
-      <div className="product-card__action">
-        <button className="product-card__action--add">Add to Cart</button>
-      </div>
     </div>
   );
 };
