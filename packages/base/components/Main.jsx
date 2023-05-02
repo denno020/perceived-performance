@@ -8,7 +8,7 @@ const Main = () => (
   <main>
     <Routes>
       <Route path="/" element={<PLP />} />
-      <Route path="/pdp" element={<PDP />} />
+      <Route path="/product/:productId" element={<PDP />} />
       <Route path="/cart" element={<Cart />} />
     </Routes>
   </main>
