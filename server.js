@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { loadPage, loadItem } from "./packages/server/products.js";
+import { loadPage, loadItem, loadRelatedProducts } from "./packages/server/products.js";
 const app = express();
 const port = 3000;
 
@@ -24,7 +24,10 @@ app.get('/product/:productId', async (req, res) => {
   res.send({ product })
 });
 
-app.use(express.static('./public'));
+app.get('/related', async (req, res) => {
+  const related = loadRelatedProducts();
+  res.send({ related })
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

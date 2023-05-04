@@ -525,3 +525,8 @@ export const loadPage = (pageNo) => {
 export const loadItem = (productId) => {
   return products.find((product) => product.id === Number(productId))
 }
+
+export const loadRelatedProducts = () => {
+  const randomIds = Array.from({length: 4}, () => Math.random() * 20).map(number => Math.floor(number));
+  return randomIds.map(id => loadItem(id));
+}
