@@ -527,6 +527,6 @@ export const loadItem = (productId) => {
 }
 
 export const loadRelatedProducts = () => {
-  const randomIds = Array.from({length: 4}, () => Math.random() * 20).map(number => Math.floor(number));
+  const randomIds = Array.from({length: 4}, () => Math.random() * 25).map(number => Math.ceil(number));
   return randomIds.map(id => loadItem(id));
 }
