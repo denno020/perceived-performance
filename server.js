@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { loadPage } from "./packages/server/products.js";
+import { loadPage, loadItem } from "./packages/server/products.js";
 const app = express();
 const port = 3000;
 
@@ -14,9 +14,14 @@ app.get('/', (req, res) => {
 });
 
 app.get('/products/:page', async (req, res) => {
-  // await new Promise(r => setTimeout(r, 1000));
   const products = loadPage(req.params.page);
   res.send({ items: products, totalPages: 10 })
+});
+
+
+app.get('/product/:productId', async (req, res) => {
+  const product = loadItem(req.params.productId);
+  res.send({ product })
 });
 
 app.use(express.static('./public'));
