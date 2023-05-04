@@ -19,16 +19,6 @@ ul {
   margin: 0;
 }
 
-main {
-  padding: 20px;
-}
-
-footer {
-  padding: 20px;
-  background-color: slategray;
-  /*color: white;*/
-}
-
 a {
   color: slategray;
   font-weight: bold;
