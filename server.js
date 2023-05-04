@@ -29,6 +29,9 @@ app.get('/related', async (req, res) => {
   res.send({ related })
 });
 
+const oneHour       = 3600000;
+app.use(express.static('./public', { maxAge: oneHour }));
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
