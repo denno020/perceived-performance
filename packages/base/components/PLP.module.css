@@ -1,3 +1,7 @@
+.headerContainer {
+    background: linear-gradient(90deg, #f5f5f5, #dce0e1)
+}
+
 .header {
     position: relative;
     overflow: hidden;
