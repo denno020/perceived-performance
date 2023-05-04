@@ -7,7 +7,7 @@ const port = 3000;
 app.use(cors());
 
 // Add artificial delay to requests to simulate an actual network request
-app.use(function(req,res,next){ setTimeout(next,1000) });
+app.use(function(req,res,next){ setTimeout(next,250) });
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
