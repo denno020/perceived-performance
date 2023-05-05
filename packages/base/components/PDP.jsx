@@ -9,7 +9,7 @@ const PDP = () => {
   const [product, setProduct] = useState();
   const [related, setRelated] = useState([]);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
-  const { setCart } = useStore();
+  const { setCart, toggleIsCartVisible } = useStore();
   const location = useLocation();
 
   useEffect(() => {
@@ -33,6 +33,10 @@ const PDP = () => {
       const cart = res.cart;
       setCart(cart);
       setIsAddingToCart(false);
+      toggleIsCartVisible();
+      setTimeout(() => {
+        toggleIsCartVisible();
+      }, 1000)
     })
   }
 
@@ -51,10 +55,10 @@ const PDP = () => {
         <div>
           <div><h1>{product.name}</h1></div>
           <div>
-            {product.price}
-          </div>
-          <div>
             {product.shortDesc}
+          </div>
+          <div className={classes.price}>
+            ${product.price}
           </div>
           <div className={classes.addToCartContainer}>
             <button onClick={handleAddToCart} className={classes.addToCartBtn} disabled={isAddingToCart}>

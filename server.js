@@ -7,7 +7,7 @@ const port = 3000;
 app.use(cors());
 app.use(express.json())
 
-const cart = [];
+const cart = new Set();
 
 // Add artificial delay to requests to simulate an actual network request
 app.use(function(req,res,next){ setTimeout(next,250) });
@@ -34,8 +34,9 @@ app.get('/related', async (req, res) => {
 
 app.post('/addToCart', (req, res) => {
   const productId = req.body.productId;
-  cart.push(productId);
-  res.send({ cart: cart.map(productId => loadItem(Number(productId))) });
+
+  cart.add(productId);
+  res.send({ cart: Array.from(cart).map(productId => loadItem(Number(productId))) });
 })
 
 const oneHour = 3600000;
