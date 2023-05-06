@@ -39,6 +39,15 @@ app.post('/addToCart', (req, res) => {
   res.send({ cart: Array.from(cart).map(productId => loadItem(Number(productId))) });
 })
 
+app.delete('/clearCart', (req, res) => {
+  cart.clear();
+  res.send({ cart: Array.from(cart) });
+})
+
+app.get('/getCart', (req, res) => {
+  res.send({ cart: Array.from(cart).map(productId => loadItem(Number(productId))) });
+})
+
 const oneHour = 3600000;
 app.use(express.static('./public', { maxAge: oneHour }));
 

@@ -30,10 +30,16 @@
     text-align: center;
 }
 
+.total {
+    font-size: 1.3em;
+    text-align: center;
+    padding: 20px 0;
+}
+
 .product {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 5px;
+    grid-gap: 10px;
 }
 
 .details {
@@ -45,10 +51,17 @@
 
 .checkboutBtnContainer {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .checkoutBtn {
     width: 100%;
     background-color: #646cff;
     color: #FFF;
+}
+
+.clearCartBtn {
+    width: 100%;
+
 }

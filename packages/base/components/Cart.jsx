@@ -4,15 +4,32 @@ import { useStore } from '../store'
 import classes from './Cart.module.css';
 
 const Cart = () => {
-  const { cart, isCartVisible, toggleIsCartVisible } = useStore();
+  const { cart, isCartVisible, toggleIsCartVisible, setCart } = useStore();
+
+  const clearCart = () => {
+    fetch('http://localhost:3000/clearCart', {
+      method: 'DELETE'
+    }).then(() => {
+      setCart([]);
+      toggleIsCartVisible();
+    })
+  }
+
+  const currencyFormatter = new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD'});
+  const total = currencyFormatter.format(cart.reduce((acc, product) => acc + Number(product.price), 0));
 
   return (
     <div className={classnames(classes.cart, {[classes.visible]: isCartVisible})}>
       <button className={classes.closeButton} onClick={toggleIsCartVisible}>
         <FaTimes />
       </button>
-      <header className={classes.title}>
-        Cart
+      <header className={classes.header}>
+        <div className={classes.title}>
+          Cart
+        </div>
+        <div className={classes.total}>
+          Total: {total}
+        </div>
       </header>
       <ul>
         {cart.map(product => (
@@ -25,7 +42,7 @@ const Cart = () => {
                 {product.name}
               </div>
               <div>
-                {product.price}
+                {currencyFormatter.format(product.price)}
               </div>
             </div>
           </li>
@@ -33,6 +50,7 @@ const Cart = () => {
       </ul>
       <div className={classes.checkboutBtnContainer}>
         <button className={classes.checkoutBtn}>Checkout</button>
+        <button onClick={clearCart} className={classes.clearCartBtn}>Clear Cart</button>
       </div>
     </div>
   )

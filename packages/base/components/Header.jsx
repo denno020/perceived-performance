@@ -5,7 +5,7 @@ import { useStore } from '../store';
 import classes from './Header.module.css';
 
 const Header = () => {
-  const { toggleIsCartVisible } = useStore();
+  const { toggleIsCartVisible, cart } = useStore();
 
   const handleOpenCart = (e) => {
     e.preventDefault();
@@ -28,11 +28,14 @@ const Header = () => {
           </Link>
         </nav>
         <div>
-          <Link to="/" onClick={handleOpenCart} className={classes.link}>
+          <Link to="/" onClick={handleOpenCart} className={`${classes.link} ${classes.cartLink}`}>
             <FaShoppingCart/>
             <span>
-            Cart
-          </span>
+              Cart
+            </span>
+            {cart.length > 0 && (
+              <span className={classes.cartCount}>{cart.length}</span>
+            )}
           </Link>
         </div>
       </div>
