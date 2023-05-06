@@ -50,7 +50,7 @@ const PDP = () => {
     <div className={classes.wrapper}>
       <div className={classes.container}>
         <div className={classes.imageContainer}>
-          <img src={product.image} width="600"/>
+          <img src={product.image.replace('.', '1.')} width="600"/>
         </div>
         <div>
           <div><h1>{product.name}</h1></div>
