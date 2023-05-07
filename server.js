@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { loadPage, loadItem, loadRelatedProducts, getPageCount } from "./packages/server/products";
+import { loadPage, loadItem, loadRelatedProducts, getPageCount } from "./packages/server/products.js";
 const app = express();
 const port = 3000;
 
