@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useStore } from "../../../store/index.js";
+import { useStore } from "../../../store";
 import { useLocation } from "react-router-dom";
 
 export const usePDP = () => {

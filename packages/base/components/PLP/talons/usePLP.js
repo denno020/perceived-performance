@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getItems } from "../../../util/get-items.js";
+import { getItems } from "../../../util/get-items";
 
 export const usePLP = () => {
   const [items, setItems] = useState([]);
