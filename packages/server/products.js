@@ -510,7 +510,7 @@ Easy to install and maintain, this clock is a great addition to any room in your
   }
 ];
 
-const itemsPerPage = 8;
+const itemsPerPage = 12;
 
 // Split the products array up into chunks, representing pages of products
 const allProducts = products.reduce((resultArray, item, index) => {
