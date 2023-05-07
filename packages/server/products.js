@@ -15,7 +15,8 @@ This black and white wall clock is perfect for anyone who appreciates clean, sim
 So if you're looking for a basic yet elegant wall clock that gets the job done, look no further than our Black and White Wall Clock with Hour, Minute, and Second Hands. It's a timeless classic that's sure to stand the test of time!    
 `,
     image:
-      "http://localhost:3000/images/products/basic.png"
+      "http://localhost:3000/images/products/basic.png",
+    previewImage: "http://localhost:3000/images/products/basic_card.png"
   },
   {
     id: 2,
@@ -33,25 +34,8 @@ The Bike Wheel Clock is not only a stylish addition to any room, but it also ser
 This clock is also a great gift for any cycling enthusiast or a unique addition to a bike shop or cycling-themed business. So why settle for a boring, ordinary clock when you can have a Bike Wheel Clock that showcases your love for cycling in a functional and stylish way?    
 `,
     image:
-      "http://localhost:3000/images/products/bike.png"
-  },
-  {
-    id: 3,
-    name: "Brass",
-    price: "47.00",
-    sku: 'DEF789',
-    shortDesc: 'Introducing the Fully Brass Wall Clock - a stunning timepiece that will make a bold statement in any room. This magnificent clock is crafted entirely from brass, giving it a warm and elegant look that will complement any decor',
-    description: `
-The clock features a large, round face with a classic white background and bold, easy-to-read black Roman numerals. The hour and minute hands are shaped like delicate arrows, while the second hand is a sleek and slender rod that sweeps smoothly around the clock face.
-<br/><br />
-At 24 inches in diameter, this wall clock is large enough to be seen from across the room, making it perfect for use in living rooms, dining rooms, or any other space where you want to make a dramatic statement. It is designed to be easy to install, with a built-in hanger on the back that makes it simple to mount on any wall.
-<br/><br />
-Crafted with the highest standards of quality and attention to detail, this fully brass wall clock is built to last and will provide you with accurate timekeeping for years to come. Whether you're a fan of traditional decor or modern design, this clock is sure to be a centerpiece of any room it's in.
-<br/><br />
-If you're looking for a truly impressive wall clock that combines functionality with style, look no further than the Fully Brass Wall Clock. It's a timeless classic that will enhance the look of any space and provide you with accurate timekeeping for years to come.
-`,
-    image:
-      "http://localhost:3000/images/products/brass.png"
+      "http://localhost:3000/images/products/bike.png",
+    previewImage: "http://localhost:3000/images/products/bike_card.png"
   },
   {
     id: 4,
@@ -73,7 +57,8 @@ Crafted with the highest standards of quality and attention to detail, this wall
 Don't settle for a boring or outdated clock - choose our Wall Clock with Copper Trim and Roman Numeral Numbers to add a touch of elegance and sophistication to your space. It's a beautiful and functional piece that you'll enjoy for years to come.
 `,
     image:
-      "http://localhost:3000/images/products/classic.png"
+      "http://localhost:3000/images/products/classic.png",
+    previewImage: "http://localhost:3000/images/products/classic_card.png"
   },
   {
     id: 5,
@@ -93,7 +78,8 @@ Crafted with the highest standards of quality and attention to detail, this wall
 Whether you're a foodie, a chef, or simply someone who appreciates creative and functional design, this Wall Clock with Forks and Spoons Welded Around the Outside is a must-have for your kitchen or dining room. It's a fun and functional piece that will bring a smile to your face every time you check the time.
 `,
     image:
-      "http://localhost:3000/images/products/cutlery.png"
+      "http://localhost:3000/images/products/cutlery.png",
+    previewImage: "http://localhost:3000/images/products/cutlery_card.png"
   },
   {
     id: 6,
@@ -113,7 +99,8 @@ Crafted with the highest standards of quality and attention to detail, this wall
 Don't settle for a boring or uninspired clock - choose our elegant Wall Clock to add a touch of sophistication and style to your space. It's a beautiful and functional piece that you'll enjoy for years to come.
 `,
     image:
-      "http://localhost:3000/images/products/elegant.png"
+      "http://localhost:3000/images/products/elegant.png",
+    previewImage: "http://localhost:3000/images/products/elegant_card.png"
   },
   {
     id: 7,
@@ -133,7 +120,8 @@ Crafted with the highest standards of quality and attention to detail, this wall
 If you're looking for a wall clock that offers a unique take on traditional clock design, the Wall Clock with Separate Dots is the perfect choice. It's a beautiful and functional piece that will enhance the look of any space and provide you with accurate timekeeping in a minimalist and modern way.
 `,
     image:
-      "http://localhost:3000/images/products/empty.png"
+      "http://localhost:3000/images/products/empty.png",
+    previewImage: "http://localhost:3000/images/products/empty_card.png"
   },
   {
     id: 8,
@@ -153,7 +141,8 @@ Crafted with the highest standards of quality and attention to detail, this wall
 Whether you're a nature lover, a hunter, or simply someone who appreciates beautiful and functional design, this Hand Carved Wooden Deer and Forest Wall Clock is a must-have for your home. It's a unique and stunning piece that will add warmth and character to any room, and is sure to be admired by all who see it.
 `,
     image:
-      "http://localhost:3000/images/products/forest.png"
+      "http://localhost:3000/images/products/forest.png",
+    previewImage: "http://localhost:3000/images/products/forest_card.png"
   },
   {
     id: 9,
@@ -173,7 +162,8 @@ Crafted with the highest standards of quality and attention to detail, this wall
 If you're looking for a large and durable outdoor clock that combines style and functionality, the Large Outdoor Wall Clock with Metal Frame and Roman Numeral Numbers is the perfect choice. It's a beautiful and functional piece that you'll enjoy for years to come.
 `,
     image:
-      "http://localhost:3000/images/products/garden.png"
+      "http://localhost:3000/images/products/garden.png",
+    previewImage: "http://localhost:3000/images/products/garden_card.png"
   },
   {
     id: 10,
@@ -191,7 +181,8 @@ With its bold and vibrant color scheme, this wall clock is the perfect addition 
 If you're looking for a fun and functional wall clock that combines style and reliability, the Vibrant Lime Green Wall Clock is the perfect choice. It's a beautiful and unique timepiece that you'll enjoy for years to come.
 `,
     image:
-      "http://localhost:3000/images/products/green.png"
+      "http://localhost:3000/images/products/green.png",
+    previewImage: "http://localhost:3000/images/products/green_card.png"
   },
   {
     id: 11,
@@ -209,7 +200,8 @@ Measuring 14 inches in diameter, this wall clock is the perfect size for any roo
 If you're looking for a stylish and functional wall clock that combines rugged industrial style with precise timekeeping, the Industrial Quartz Wall Clock is the perfect choice. It's a unique and eye-catching timepiece that's sure to become a conversation starter in any room.
 `,
     image:
-      "http://localhost:3000/images/products/industrial.png"
+      "http://localhost:3000/images/products/industrial.png",
+    previewImage: "http://localhost:3000/images/products/industrial_card.png"
   },
   {
     id: 12,
@@ -227,7 +219,8 @@ Measuring 12 inches in diameter, this wall clock is the perfect size for any roo
 If you're looking for a wall clock that combines elegance and style with natural beauty, the Elegant Marble Wall Clock is the perfect choice. It's a stunning piece that's sure to become a focal point in any room. Whether you're adding it to a living room, bedroom, or office, this clock is sure to impress.
 `,
     image:
-      "http://localhost:3000/images/products/marble.png"
+      "http://localhost:3000/images/products/marble.png",
+    previewImage: "http://localhost:3000/images/products/marble_card.png"
   },
   {
     id: 13,
@@ -245,7 +238,8 @@ Measuring 25 inches in height, this wall clock is the perfect size for any room 
 If you're looking for a wall clock that combines classic style with modern convenience, the Mini Grandfather Clock Wall Clock is the perfect choice. It's a timeless piece that's sure to add warmth and elegance to any room. Whether you're placing it in a living room, dining room, or entryway, this clock is sure to become a treasured addition to your decor.
 `,
     image:
-      "http://localhost:3000/images/products/mini-grand.png"
+      "http://localhost:3000/images/products/mini-grand.png",
+    previewImage: "http://localhost:3000/images/products/mini-grand_card.png"
   },
   {
     id: 14,
@@ -263,7 +257,8 @@ With its precise quartz movement, this wall clock will keep accurate time for ye
 If you're looking for a wall clock that combines simplicity and functionality, the Minimalist Wall Clock is the perfect choice. Its unassuming design and reliable timekeeping make it an ideal addition to any room. Whether you're placing it in a bedroom, kitchen, or office, this clock is sure to become a staple in your decor.
 `,
     image:
-      "http://localhost:3000/images/products/minimal.png"
+      "http://localhost:3000/images/products/minimal.png",
+    previewImage: "http://localhost:3000/images/products/minimal_card.png"
   },
   {
     id: 15,
@@ -283,7 +278,8 @@ With its precise quartz movement, this wall clock will keep accurate time for ye
 If you're looking for a wall clock that combines simplicity and elegance, the Copper Trim Wall Clock is the perfect choice. Its clean design and reliable timekeeping make it an ideal addition to any room. Whether you're placing it in a living room, dining room, or office, this clock is sure to become a treasured addition to your decor.
 `,
     image:
-      "http://localhost:3000/images/products/copper-trim.png"
+      "http://localhost:3000/images/products/copper-trim.png",
+    previewImage: "http://localhost:3000/images/products/copper-trim_card.png"
   },
   {
     id: 16,
@@ -299,7 +295,8 @@ The clock face is white with a subtle texture that adds depth and interest to th
 The standout feature of this clock is its wooden trim, which frames the clock face and adds warmth and texture to its design. The natural wood finish has a beautiful, rich tone that will complement any decor style.
 `,
     image:
-      "http://localhost:3000/images/products/modern.png"
+      "http://localhost:3000/images/products/modern.png",
+    previewImage: "http://localhost:3000/images/products/modern_card.png"
   },
   {
     id: 17,
@@ -319,7 +316,8 @@ With its precise quartz movement, this wall clock will keep accurate time for ye
 If you're looking for a wall clock that is both unique and functional, the Neon Circle Wall Clock is the perfect choice. Its minimalist design and vibrant colors make it an ideal addition to any room in your home or office. Whether you're placing it in a living room, bedroom, or workspace, this clock is sure to add a touch of modern artistry to your decor.
 `,
     image:
-      "http://localhost:3000/images/products/neon.png"
+      "http://localhost:3000/images/products/neon.png",
+    previewImage: "http://localhost:3000/images/products/neon_card.png"
   },
   {
     id: 18,
@@ -339,7 +337,8 @@ Measuring 12 inches in diameter, this wall clock is the perfect size for any roo
 If you're looking for a wall clock that combines functionality and style, the Minimalist White Wall Clock is the perfect choice. Its simple yet elegant design is versatile enough to complement any decor style, from modern to traditional. Plus, its neutral color palette makes it an easy addition to any room in your home or office.
 `,
     image:
-      "http://localhost:3000/images/products/orange.png"
+      "http://localhost:3000/images/products/orange.png",
+    previewImage: "http://localhost:3000/images/products/orange_card.png"
   },
   {
     id: 19,
@@ -357,7 +356,8 @@ Measuring 14 inches in diameter, this wall clock is the perfect size for any roo
 If you're looking for a wall clock that is both functional and stylish, the Gothic Wall Clock is the perfect choice. Its unique design is sure to impress and its accurate timekeeping ensures that you will never be late again. Whether you're a fan of Gothic architecture or simply appreciate a striking and unique design, this clock is a must-have for your home or office.
 `,
     image:
-      "http://localhost:3000/images/products/quirky.png"
+      "http://localhost:3000/images/products/quirky.png",
+    previewImage: "http://localhost:3000/images/products/quirky_card.png"
   },
   {
     id: 20,
@@ -377,7 +377,8 @@ Crafted from high-quality materials, this wall clock is built to last. Its durab
 Whether you're keeping track of time while working from home, cooking in the kitchen, or simply need to know the time of day, the Classic Black and White Wall Clock is the perfect choice. Its timeless design and accurate timekeeping make it a must-have for any home or office.
 `,
     image:
-      "http://localhost:3000/images/products/seconds.png"
+      "http://localhost:3000/images/products/seconds.png",
+    previewImage: "http://localhost:3000/images/products/seconds_card.png"
   },
   {
     id: 21,
@@ -397,7 +398,8 @@ With its accurate quartz movement, the Bold Black and White Wall Clock ensures p
 Crafted from high-quality materials, this wall clock is built to last. Its durable construction ensures that it will be a reliable timepiece in your home for years to come. With its bold design and accurate timekeeping, the Bold Black and White Wall Clock is a must-have for anyone looking for a modern and stylish timepiece.
 `,
     image:
-      "http://localhost:3000/images/products/simple.png"
+      "http://localhost:3000/images/products/simple.png",
+    previewImage: "http://localhost:3000/images/products/simple_card.png"
   },
   {
     id: 22,
@@ -417,7 +419,8 @@ With its accurate quartz movement, the Slate and Metal Wall Clock ensures precis
 Crafted from high-quality materials, this wall clock is built to last. Its durable construction ensures that it will be a reliable timepiece in your home for years to come. With its natural slate face and stylish metallic hands, the Slate and Metal Wall Clock is a must-have for anyone looking for a unique and elegant timepiece.
 `,
     image:
-      "http://localhost:3000/images/products/slate.png"
+      "http://localhost:3000/images/products/slate.png",
+    previewImage: "http://localhost:3000/images/products/slate_card.png"
   },
   {
     id: 23,
@@ -437,7 +440,8 @@ With its accurate quartz movement, the Square Wall Clock ensures precise timekee
 Crafted from high-quality materials, this wall clock is built to last. Its durable construction ensures that it will be a reliable timepiece in your home for years to come. With its minimalist design and focus on functionality, the Square Wall Clock is a must-have for anyone looking for a simple and stylish timepiece.
 `,
     image:
-      "http://localhost:3000/images/products/square.png"
+      "http://localhost:3000/images/products/square.png",
+    previewImage: "http://localhost:3000/images/products/square_card.png"
   },
   {
     id: 24,
@@ -459,7 +463,8 @@ Crafted from high-quality materials, this clock is built to last. Its sturdy con
 Whether you're a fan of the Adams Family or simply looking for a unique and spooky piece of decor, the Wednesday Addams Wall Clock is the perfect choice. Its unique design, reliable timekeeping, and high-quality construction make it a must-have for any collector or fan.
 `,
     image:
-      "http://localhost:3000/images/products/wednesday.png"
+      "http://localhost:3000/images/products/wednesday.png",
+    previewImage: "http://localhost:3000/images/products/wednesday_card.png"
   },
   {
     id: 25,
@@ -479,7 +484,8 @@ Crafted from durable and sustainable materials, this clock is built to last. Its
 Easy to install and maintain, this clock is a hassle-free way to add a touch of warmth and style to any room in your home. Whether you're looking for a unique piece of decor or simply need a reliable timekeeper, our all-wood wall clock is the perfect choice.
 `,
     image:
-      "http://localhost:3000/images/products/wooden.png"
+      "http://localhost:3000/images/products/wooden.png",
+    previewImage: "http://localhost:3000/images/products/wooden_card.png"
   },
   {
     id: 26,
@@ -499,7 +505,8 @@ Crafted from high-quality materials, this clock is built to last. The woodgrain 
 Easy to install and maintain, this clock is a great addition to any room in your home. Whether you're looking to add a touch of natural beauty to your decor or simply need a reliable timekeeper, our woodgrain wall clock is the perfect choice.
 `,
     image:
-      "http://localhost:3000/images/products/woodgrain.png"
+      "http://localhost:3000/images/products/woodgrain.png",
+    previewImage: "http://localhost:3000/images/products/woodgrain_card.png"
   }
 ];
 
@@ -527,6 +534,6 @@ export const loadItem = (productId) => {
 }
 
 export const loadRelatedProducts = () => {
-  const randomIds = Array.from({length: 4}, () => Math.random() * 25).map(number => Math.ceil(number));
-  return randomIds.map(id => loadItem(id));
+  const randomIds = Array.from({length: 4}, () => Math.random() * 25).map(number => Math.ceil(number)).filter(Boolean);
+  return randomIds.map(id => loadItem(id)).filter(Boolean);
 }

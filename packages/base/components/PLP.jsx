@@ -24,13 +24,13 @@ const PLP = () => {
         </div>
       </div>
       <ul className={classes.products}>
-        {items.length === 0 ? placeholderProducts : items.map((product) => (
-            <li key={product.id}>
-              <ProductCard
-                product={product}
-              />
-            </li>
-          ))}
+        {items.map((product) => (
+          <li key={product.id}>
+            <ProductCard
+              product={product}
+            />
+          </li>
+        ))}
       </ul>
       {hasMore && (
         <button className="btn--load" type="button" onClick={() => loadItems()}>Load Next</button>

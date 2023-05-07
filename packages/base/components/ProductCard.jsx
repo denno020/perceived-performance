@@ -4,13 +4,13 @@ import './ProductCard.css'
 
 const ProductCard = (props) => {
   const { product } = props;
-  const { id, name = 'Placeholder name', price = '10.00', image } = product || {};
+  const { id, name = 'Placeholder name', price = '10.00', previewImage } = product || {};
 
   return (
     <div className="product-card">
       <div className="product-card__image-container">
         <Link to={`/product/${id}`}>
-          <img className="product-card__image" src={image} alt={name} />
+          <img className="product-card__image" src={previewImage} alt={name} />
         </Link>
       </div>
       <div className="product-card__name">
