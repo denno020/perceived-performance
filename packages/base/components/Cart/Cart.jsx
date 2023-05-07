@@ -1,6 +1,6 @@
 import { FaTimes } from 'react-icons/fa'
 import classnames from 'classnames';
-import { useStore } from '../store'
+import { useStore } from '../../store'
 import classes from './Cart.module.css';
 
 const Cart = () => {

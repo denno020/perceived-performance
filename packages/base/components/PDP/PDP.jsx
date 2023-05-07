@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useStore } from '../store'
-import ProductCard from "./ProductCard";
+import { useStore } from '../../store'
+import ProductCard from "../ProductCard";
+import LoadingIndicator from "../LoadingIndicator";
 import classes from './PDP.module.css';
-import LoadingIndicator from "./LoadingIndicator.jsx";
 
 const PDP = () => {
   const [product, setProduct] = useState();

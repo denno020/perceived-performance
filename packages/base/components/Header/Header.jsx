@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaHome } from 'react-icons/fa';
-import { useStore } from '../store';
+import { useStore } from '../../store';
 import classes from './Header.module.css';
 
 const Header = () => {

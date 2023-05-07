@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import './ProductCard.css'
 
 const ProductCard = (props) => {
-  const { product } = props;
-  const { id, name = 'Placeholder name', price = '10.00', previewImage } = product || {};
+  const { id, name, price, previewImage } = props.product;
 
   return (
     <div className="product-card">

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import ProductCard from "./ProductCard";
-import { getItems } from '../util/get-items';
+import { getItems } from '../../util/get-items.js';
+import ProductCard from "../ProductCard";
 import classes from './PLP.module.css'
 
 const PLP = () => {
