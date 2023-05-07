@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { loadPage, loadItem, loadRelatedProducts } from "./packages/server/products.js";
+import { loadPage, loadItem, loadRelatedProducts, getPageCount } from "./packages/server/products.js";
 const app = express();
 const port = 3000;
 
@@ -18,7 +18,8 @@ app.get('/', (req, res) => {
 
 app.get('/products/:page', async (req, res) => {
   const products = loadPage(req.params.page);
-  res.send({ items: products, totalPages: 10 })
+  const pageCount = getPageCount();
+  res.send({ items: products, totalPages: pageCount })
 });
 
 

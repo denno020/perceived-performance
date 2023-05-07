@@ -1,22 +1,28 @@
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import ProductCard from "./ProductCard";
 import { getItems } from '../util/get-items';
-import { useInfiniteLoading } from '../hooks/useInfiniteLoading';
 import classes from './PLP.module.css'
 
 const PLP = () => {
-  const { items, loadItems, hasMore } = useInfiniteLoading({ getItems });
+  const [items, setItems] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const pageToLoad = useRef(1);
 
-  const placeholderProducts = React.useMemo(() => {
-    return Array.from(new Array(12)).map((ingored, index) => (
-      <li key={index}> {/* <------ */}
-        <ProductCard isSkeleton={true}/>
-      </li>
-    ));
+  const loadItems = async () => {
+    const data = await getItems({
+      page: pageToLoad.current
+    });
+    pageToLoad.current = pageToLoad.current + 1;
+    setHasMore(pageToLoad.current <= data.totalPages);
+    setItems(prevItems => [...prevItems, ...data.items]);
+  }
+
+  useEffect(() => {
+    loadItems();
   }, [])
 
   return (
-    <React.Fragment>
+    <>
       <div className={classes.headerContainer}>
         <div className={classes.header}>
           Wall Clocks
@@ -35,7 +41,7 @@ const PLP = () => {
       {hasMore && (
         <button className="btn--load" type="button" onClick={() => loadItems()}>Load Next</button>
       )}
-    </React.Fragment>
+    </>
   );
 };
 

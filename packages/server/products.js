@@ -529,6 +529,10 @@ export const loadPage = (pageNo) => {
   return allProducts[pageNo - 1]; // Array is 0-indexed
 };
 
+export const getPageCount = () => {
+  return allProducts.length;
+}
+
 export const loadItem = (productId) => {
   return products.find((product) => product.id === Number(productId))
 }
