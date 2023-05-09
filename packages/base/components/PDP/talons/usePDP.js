@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react";
 import { useStore } from "../../../store";
 import { useLocation } from "react-router-dom";
+import cache from "../../../util/cache";
 
 export const usePDP = () => {
-  const [product, setProduct] = useState();
+  const location = useLocation();
+  const productId = Number(location.pathname.replace('/product/', ''));
+  const [product, setProduct] = useState(() => cache.getItem(`product-${productId}`));
   const [related, setRelated] = useState([]);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const { setCart, toggleIsCartVisible } = useStore();
-  const location = useLocation();
 
   useEffect(() => {
-    const productId = Number(location.pathname.replace('/product/', ''));
     fetch(`http://localhost:3000/product/${productId}`).then(res => res.json()).then((res) => {
+      cache.addToCache({ key: `product-${productId}`, value: JSON.stringify(res.product) })
       setProduct(res.product)
     });
 
     fetch(`http://localhost:3000/related`).then(res => res.json()).then((res) => {
       setRelated(res.related)
     });
-  }, [location.pathname])
+  }, [productId])
 
   const handleAddToCart = () => {
     setIsAddingToCart(true);
