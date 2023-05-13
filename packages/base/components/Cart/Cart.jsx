@@ -33,7 +33,7 @@ const Cart = () => {
       </header>
       <ul className={classes.items}>
         {cart.map(product => (
-          <li className={classes.product}>
+          <li key={product.id} className={classes.product}>
             <div>
               <img width={100} src={product.previewImage} alt={product.name} />
             </div>
