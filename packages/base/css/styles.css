@@ -41,3 +41,7 @@ button {
   display: block;
   padding: 5px 20px;
 }
+
+.wrapper {
+  min-height: 100vh;
+}

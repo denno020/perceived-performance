@@ -10,8 +10,10 @@ const App = () => {
   return(
   <>
     <Cart />
-    <Header />
-    <Main />
+    <div className="wrapper">
+      <Header />
+      <Main />
+    </div>
     <Footer />
   </>
 )};
