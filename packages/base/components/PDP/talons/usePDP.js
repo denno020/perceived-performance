@@ -7,7 +7,12 @@ import { getItem } from "../../../util/get-item";
 export const usePDP = () => {
   const location = useLocation();
   const productId = Number(location.pathname.replace('/product/', ''));
-  const [product, setProduct] = useState(() => cache.getItem(`product-${productId}`));
+  const [product, setProduct] = useState(() => {
+    const cachedProduct = cache.getItem(`product-${productId}`);
+    if (cachedProduct) return cachedProduct;
+    if (location.state?.product) return location.state.product;
+    return undefined;
+  });
   const [related, setRelated] = useState([]);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const { cart, setCart, toggleIsCartVisible } = useStore();
