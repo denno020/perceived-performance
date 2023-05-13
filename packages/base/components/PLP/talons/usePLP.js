@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { getItems } from "../../../util/get-items";
+import { getItem } from "../../../util/get-item";
 import cache from "../../../util/cache";
 
 export const usePLP = () => {
@@ -26,6 +27,10 @@ export const usePLP = () => {
     } else {
       setItems(prevItems => [...prevItems, ...data.items]);
     }
+
+    data.items.forEach((product) => {
+      getItem(product.id);
+    })
   }
 
   useEffect(() => {
