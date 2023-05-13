@@ -16,7 +16,6 @@ const cacheSingleton = {
   },
   addToCache: function (data) {
     this.cache[data.key] = data.value;
-    console.log({addToCache: this.cache})
   }
 };
 
