@@ -31,11 +31,11 @@ const Cart = () => {
           Total: {total}
         </div>
       </header>
-      <ul>
+      <ul className={classes.items}>
         {cart.map(product => (
           <li className={classes.product}>
             <div>
-              <img width={100} src={product.image} alt={product.name} />
+              <img width={100} src={product.previewImage} alt={product.name} />
             </div>
             <div className={classes.details}>
               <div>

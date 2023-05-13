@@ -36,6 +36,10 @@
     padding: 20px 0;
 }
 
+.items {
+    overflow-y: auto;
+}
+
 .product {
     display: grid;
     grid-template-columns: auto 1fr;
