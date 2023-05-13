@@ -43,5 +43,7 @@ button {
 }
 
 .wrapper {
+  /* Comment out the following to push the footer below the fold */
+  display: contents;
   min-height: 100vh;
 }
