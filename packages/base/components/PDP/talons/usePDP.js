@@ -10,7 +10,7 @@ export const usePDP = () => {
   const [product, setProduct] = useState(() => cache.getItem(`product-${productId}`));
   const [related, setRelated] = useState([]);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
-  const { setCart, toggleIsCartVisible } = useStore();
+  const { cart, setCart, toggleIsCartVisible } = useStore();
 
   useEffect(() => {
     getItem(productId).then(setProduct);
@@ -21,7 +21,7 @@ export const usePDP = () => {
   }, [productId])
 
   const handleAddToCart = () => {
-    setIsAddingToCart(true);
+    // setIsAddingToCart(true);
     fetch('http://localhost:3000/addToCart', {
       method: 'post', headers: {
         "Content-Type": "application/json",
@@ -29,12 +29,17 @@ export const usePDP = () => {
     }).then(res => res.json()).then((res) => {
       const cart = res.cart;
       setCart(cart);
-      setIsAddingToCart(false);
-      toggleIsCartVisible();
-      setTimeout(() => {
-        toggleIsCartVisible();
-      }, 1000)
+      // setIsAddingToCart(false);
     })
+
+    if (!cart.find((cartProduct) => cartProduct.id === product.id)) {
+      console.log(`not there?`);
+      setCart([...cart, product]);
+    }
+    toggleIsCartVisible();
+    setTimeout(() => {
+      toggleIsCartVisible();
+    }, 1000)
   }
 
   return {
