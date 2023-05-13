@@ -41,9 +41,9 @@ const PDP = () => {
         </div>
 
         <div className={classes.tab}>
-          <input checked="checked" id="tab1" type="radio" name="pct" className={classes.input1}/>
-          <input id="tab2" type="radio" name="pct" className={classes.input2}/>
-          <input id="tab3" type="radio" name="pct" className={classes.input3}/>
+          <input onChange={() => {}} checked="checked" id="tab1" type="radio" name="pct" className={classes.input1}/>
+          <input onChange={() => {}} id="tab2" type="radio" name="pct" className={classes.input2}/>
+          <input onChange={() => {}} id="tab3" type="radio" name="pct" className={classes.input3}/>
           <nav>
             <ul>
               <li className={classes.tab1}>
