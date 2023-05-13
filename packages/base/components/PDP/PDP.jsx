@@ -16,7 +16,8 @@ const PDP = () => {
     <div className={classes.wrapper}>
       <div className={classes.container}>
         <div className={classes.imageContainer}>
-          <img src={product.image} width="600"/>
+          <img className={classes.previewImage} src={product.previewImage} width="600"/>
+          <img className={classes.image} src={product.image} width="600"/>
         </div>
         <div>
           <div><h1>{product.name}</h1></div>
