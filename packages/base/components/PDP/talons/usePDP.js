@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useStore } from "../../../store";
 import { useLocation } from "react-router-dom";
 import cache from "../../../util/cache";
+import { getItem } from "../../../util/get-item";
 
 export const usePDP = () => {
   const location = useLocation();
@@ -12,10 +13,7 @@ export const usePDP = () => {
   const { setCart, toggleIsCartVisible } = useStore();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/product/${productId}`).then(res => res.json()).then((res) => {
-      cache.addToCache({ key: `product-${productId}`, value: JSON.stringify(res.product) })
-      setProduct(res.product)
-    });
+    getItem(productId).then(setProduct);
 
     fetch(`http://localhost:3000/related`).then(res => res.json()).then((res) => {
       setRelated(res.related)
