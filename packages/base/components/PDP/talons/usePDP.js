@@ -20,30 +20,49 @@ export const usePDP = () => {
     });
   }, [productId])
 
-  const handleAddToCart = () => {
-    // setIsAddingToCart(true);
-    fetch('http://localhost:3000/addToCart', {
+  const fetchItem = (product) => {
+    return fetch('http://localhost:3000/addToCart', {
       method: 'post', headers: {
         "Content-Type": "application/json",
       }, body: JSON.stringify({ productId: product.id })
-    }).then(res => res.json()).then((res) => {
-      const cart = res.cart;
-      setCart(cart);
-      // setIsAddingToCart(false);
-    })
+    });
+  }
 
-    if (!cart.find((cartProduct) => cartProduct.id === product.id)) {
-      console.log(`not there?`);
-      setCart([...cart, product]);
-    }
+  const peekCart = () => {
     toggleIsCartVisible();
     setTimeout(() => {
       toggleIsCartVisible();
     }, 1000)
   }
 
+  const handleAddToCartSlow = () => {
+    setIsAddingToCart(true);
+    fetchItem(product).then(res => res.json()).then((res) => {
+      const cart = res.cart;
+      setCart(cart);
+      setIsAddingToCart(false);
+      peekCart();
+    })
+  }
+
+  const handleAddToCartFast = () => {
+    fetchItem(product).then(res => res.json()).then((res) => {
+      const cart = res.cart;
+      setCart(cart);
+    })
+
+    if (!cart.find((cartProduct) => cartProduct.id === product.id)) {
+      setCart([...cart, product]);
+    }
+    peekCart();
+  }
+
   return {
-    product, handleAddToCart, isAddingToCart, related
+    product,
+    handleAddToCart: handleAddToCartSlow, // NOT optimistically updating the UI
+    // handleAddToCart: handleAddToCartFast, // For demonstrating optimistically updating the UI
+    isAddingToCart,
+    related
   }
 }
 

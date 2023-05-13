@@ -16,8 +16,12 @@ const PDP = () => {
     <div className={classes.wrapper}>
       <div className={classes.container}>
         <div className={classes.imageContainer}>
-          <img className={classes.previewImage} src={product.previewImage} width="600"/>
-          <img className={classes.image} src={product.image} width="600"/>
+          {/* Uncomment the following, and comment out the block after the blank line, to demonstrate re-using browser cache */}
+          {/*<img className={classes.previewImage} src={product.previewImage} width="600"/>*/}
+          {/*<img className={classes.image} src={product.image} width="600"/>*/}
+
+          {/* Comment out the following, and uncomment the above, to demonstrate re-using browser cache */}
+          <img src={product.image} width="600"/>
         </div>
         <div>
           <div><h1>{product.name}</h1></div>
