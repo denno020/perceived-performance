@@ -28,7 +28,7 @@ const PLP = () => {
           </li>
         ))}
       </ul>
-      {hasMore && (
+      {items.length > 0 && hasMore && (
         <button className="btn--load" type="button" onClick={() => loadItems()}>Load Next</button>
       )}
     </>
