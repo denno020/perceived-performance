@@ -1,6 +1,7 @@
 import ProductCard from "../ProductCard";
 import { usePLP } from './talons/usePLP';
 import classes from './PLP.module.css'
+import LoadingIndicator from "../LoadingIndicator/index.js";
 
 const PLP = () => {
   const {items, hasMore, loadItems} = usePLP();
@@ -14,6 +15,11 @@ const PLP = () => {
         </div>
       </div>
       <ul className={classes.products}>
+        {items.length === 0 && (
+          <li className={classes.loadingIndicatorContainer}>
+            <LoadingIndicator />
+          </li>
+        )}
         {items.map((product) => (
           <li key={product.id}>
             <ProductCard

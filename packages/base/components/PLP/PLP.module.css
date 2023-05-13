@@ -32,3 +32,8 @@
     max-width: var(--max-width);
     margin: 0 auto;
 }
+
+.loadingIndicatorContainer {
+    grid-column: 2/3;
+    text-align: center;
+}
