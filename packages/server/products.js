@@ -538,6 +538,8 @@ export const loadItem = (productId) => {
 }
 
 export const loadRelatedProducts = () => {
-  const randomIds = Array.from({length: 4}, () => Math.random() * 25).map(number => Math.ceil(number)).filter(Boolean);
-  return randomIds.map(id => loadItem(id)).filter(Boolean);
+  const randomIdsSet = new Set();
+  Array.from({length: 4}, () => Math.random() * 25).map(number => Math.ceil(number)).filter(Boolean).forEach(id => randomIdsSet.add(id));
+
+  return Array.from(randomIdsSet).map(id => loadItem(id)).filter(Boolean);
 }
