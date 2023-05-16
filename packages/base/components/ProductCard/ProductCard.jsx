@@ -12,6 +12,12 @@ const ProductCard = (props) => {
     getItem(id).then((product) => {
       navigate(`/product/${id}`, { state: { product } })
     })
+
+    // Really slow connections will be taken to the PDP before the network request is resolved
+    // @TODO Uncomment to demonstrate slow network connection
+    // setTimeout(() => {
+    //   navigate(`/product/${id}`, { state: { product: false } })
+    // }, 500)
   }
 
   const LinkComponent = (props) => {
