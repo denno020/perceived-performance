@@ -13,10 +13,11 @@ body {
 
 #root {
   min-height: 100vh;
+}
 
-  /* Uncomment the following to push the footer to bottom */
-  /*display: grid;*/
-  /*grid-template-rows: auto 1fr auto;*/
+#root.minHeight {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 ul {
@@ -43,6 +44,9 @@ button {
 
 .wrapper {
   /* Comment out the following to push the footer below the fold */
-  display: contents;
   min-height: 100vh;
+}
+
+.wrapper:not(.foldFooter) {
+  display: contents;
 }

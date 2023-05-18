@@ -9,14 +9,20 @@ const ProductCard = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    getItem(id).then((product) => {
-      navigate(`product/${id}`, { state: { product } })
-    })
-
     // Really slow connections will be taken to the PDP before the network request is resolved
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       navigate(`product/${id}`, { state: { product: false } })
     }, 500)
+
+    getItem(id).then((product) => {
+      // setTimeout might have kicked in and already navigated us to the route to display a loading indicator
+      if (!location.pathname.includes('product')) {
+        clearTimeout(timeoutId);
+        navigate(`product/${id}`, { state: { product } })
+      }
+    })
+
+    
   }
 
   const LinkComponent = (props) => {

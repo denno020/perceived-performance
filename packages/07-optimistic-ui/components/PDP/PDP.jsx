@@ -21,7 +21,7 @@ const PDP = () => {
           <img className={classes.image} src={product.image} width="600"/>
 
            {/*Comment out the following, and uncomment the above, to demonstrate re-using browser cache*/}
-          <img src={product.image} width="600"/>
+          {/* <img src={product.image} width="600"/> */}
         </div>
         <div>
           <div><h1>{product.name}</h1></div>

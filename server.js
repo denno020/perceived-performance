@@ -37,7 +37,10 @@ app.post('/addToCart', (req, res) => {
   const productId = req.body.productId;
 
   cart.add(productId);
-  res.send({ cart: Array.from(cart).map(productId => loadItem(Number(productId))) });
+  setTimeout(() => {
+    res.send({ cart: Array.from(cart).map(productId => loadItem(Number(productId))) });
+  }, 500)
+  
 })
 
 app.delete('/clearCart', (req, res) => {
