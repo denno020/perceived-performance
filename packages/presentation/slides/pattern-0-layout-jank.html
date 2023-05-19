@@ -1,0 +1,45 @@
+<section>
+    <h2>Cumulative Layout Shift (CLS)</h2>
+    <ul>
+        <li class="fragment">Layout jank</li>
+        <li class="fragment">
+            First painted one place, next painted another
+            <ul>
+                <li class="fragment">Not an animation</li>
+            </ul>
+        </li>
+        <li class="fragment">Demo <sup>0</sup></li>
+        <li class="fragment">Skeleton Loaders</li>
+        <li class="fragment">Push footer to base of viewport</li>
+        <li class="fragment">Demo <sup>1</sup></li>
+        <li class="fragment">Push footer below the fold</li>
+        <li class="fragment">Demo <sup>2</sup></li>
+        <li class="fragment">
+            Downsides?
+            <ul>
+                <li class="fragment">Short content</li>
+            </ul>
+        </li>
+    </ul>
+    <aside class="notes">
+        <ul>
+            <li>I'm not sure if this first one would be considered a pattern, or more just a consideration</li>
+            <li>Affectionately known as 🖱 layout jank</li>
+            <li>🖱Effectively when elements a painted to the browser,  but then are re-painted into a different location as things are loaded into the page</li>
+            <li>🖱 Not in the fun way like an animation</li>
+            <li>🖱 Let's jump back to the demo app to see exactly what I mean</li>
+            <li>📺As we can see, the footer starts right up against the loading indicator, then gets pushed down when the content has loaded and is rendered</li>
+            <li>📺It's a jarring experience, and one that will influence a users perception of the performance of the site</li>
+            <li>There's a couple of ways to solve this. The best way is probably to make use of a 🖱 skeleton loader</li>
+            <li>But to set up a good skeleton loader does take time</li>
+            <li>We can also use CSS to 🖱push the footer to the bottom of the viewport, which makes for a slightly neater experience</li>
+            <li>🖱Let's see what that would look like</li>
+            <li>We can then also go one step further an push the footer 🖱 below the fold</li>
+            <li>Let's see what they would look like</li>
+            <li>📺Now we don't see the footer again! We can scroll down to it, but othewise there is a lot less layout jank happening</li>
+            <li>Downsides?</li>
+            <li>If your page really is short on content, then the footer will forever remain below the fold, and there could be a large amount of white space</li>
+            <li>This can be fixed by reverting to pushing the footer to the baseline of the viewport when content has finished loading, which is layout jank, but I would expect that's not going to happen too often</li>
+        </ul>
+    </aside>
+</section>

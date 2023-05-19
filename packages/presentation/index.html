@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Perceived Performance</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕒</text></svg>"
+    />
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/dracula.css" />
+    <link rel="stylesheet" href="dist/custom.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-external-replace="slides/00-pre-intro.html"></section>
+        <section
+          data-external-replace="slides/01-performance-intro.html"
+        ></section>
+        <section
+          data-external-replace="slides/02-perceived-performance-intro.html"
+        ></section>
+        <section
+          data-external-replace="slides/03-personal-introduction.html"
+        ></section>
+        <section
+          data-external-replace="slides/04-demo-app-intro.html"
+        ></section>
+        <section
+          data-external-replace="slides/pattern-0-layout-jank.html"
+        ></section>
+        <section
+          data-external-replace="slides/05-pattern-1-loading-indicators.html"
+        ></section>
+        <section
+          data-external-replace="slides/06-loading-pattern-1-2-local-data-cache.html"
+        ></section>
+        <section
+          data-external-replace="slides/07-pattern-2-pre-fetching.html"
+        ></section>
+        <section
+          data-external-replace="slides/08-pattern-3-leveraging-browser-cache.html"
+        ></section>
+        <section
+          data-external-replace="slides/09-pattern-4-optimistically-updating-ui.html"
+        ></section>
+        <section data-external-replace="slides/10-golden-rules.html"></section>
+        <section data-external-replace="slides/11-closing.html"></section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+        dependencies: [
+          {
+            src: "plugin/external/external.js",
+            condition: function () {
+              return !!document.querySelector(
+                "[data-external],[data-external-replace]"
+              );
+            },
+          },
+        ],
+      });
+    </script>
+    <script>
+      let iconTracker = 0;
+      const timeIcons = [
+        "🕛",
+        "🕧",
+        "🕐",
+        "🕜",
+        "🕑",
+        "🕝",
+        "🕒",
+        "🕞",
+        "🕓",
+        "🕟",
+        "🕔",
+        "🕠",
+        "🕕",
+        "🕡",
+        "🕖",
+        "🕢",
+        "🕗",
+        "🕣",
+        "🕘",
+        "🕤",
+        "🕙",
+        "🕥",
+        "🕚",
+        "🕦",
+      ];
+      setInterval(() => {
+        if (iconTracker + 1 >= timeIcons.length - 1) {
+          iconTracker = 0;
+        } else {
+          iconTracker++;
+        }
+        document.querySelector(
+          'link[rel="icon"]'
+        ).href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${timeIcons[iconTracker]}</text></svg>`;
+      }, 5000);
+    </script>
+  </body>
+</html>
