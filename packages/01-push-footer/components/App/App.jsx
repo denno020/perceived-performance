@@ -10,7 +10,7 @@ const App = () => {
 
   useEffect(() => {
     document.querySelector('#root').classList.add('minHeight');
-    document.title = 'Timeless 1'
+    document.title = 'Timeless 1';
   }, [])
 
   return(
