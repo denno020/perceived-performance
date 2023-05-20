@@ -8,9 +8,10 @@ app.use(cors());
 app.use(express.json())
 
 const cart = new Set();
+const serverDelay = 500;
 
 // Add artificial delay to requests to simulate an actual network request
-app.use(function(req,res,next){ setTimeout(next,250) });
+app.use(function(req,res,next){ setTimeout(next, serverDelay) });
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -39,7 +40,7 @@ app.post('/addToCart', (req, res) => {
   cart.add(productId);
   setTimeout(() => {
     res.send({ cart: Array.from(cart).map(productId => loadItem(Number(productId))) });
-  }, 500)
+  }, serverDelay) // This effectively doubles the delay for adding to cart specifically
   
 })
 
