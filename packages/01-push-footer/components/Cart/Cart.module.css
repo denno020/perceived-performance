@@ -61,7 +61,7 @@
 
 .checkoutBtn {
     width: 100%;
-    background-color: #646cff;
+    background-color: var(--color-primary);
     color: #FFF;
 }
 

@@ -3,10 +3,10 @@ import Cart from "../Cart";
 import Header from "../Header";
 import Main from "../Main";
 import Footer from "../Footer";
-import { useScrollToTopOnNav } from "../../../base/hooks/useScrollToTopOnNav";
+import { useCommonHooks } from "../../../base/hooks/useCommonHooks";
 
 const App = () => {
-  useScrollToTopOnNav();
+  useCommonHooks();
   useEffect(() => {
     document.querySelector('#root').classList.add('minHeight');
     document.title = 'Timeless 3'

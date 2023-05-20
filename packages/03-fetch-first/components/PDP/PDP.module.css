@@ -38,7 +38,7 @@
 }
 
 .addToCartBtn {
-    background-color: #646cff;
+    background-color: var(--color-primary);
     color: #FFF;
 }
 
