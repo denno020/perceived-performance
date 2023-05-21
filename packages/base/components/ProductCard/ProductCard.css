@@ -1,10 +1,21 @@
 .product-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px;
     background-color: white;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    background-color: whitesmoke;
+    transition: background-color ease-in 200ms;
+}
+
+.product-cached:hover {
+    background-color: lightyellow;
 }
 
 .product-card__image-container {
@@ -20,6 +31,8 @@
 
 .product-card__image {
     height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 
 .product-card--skeleton .product-card__image-container img {
@@ -48,4 +61,14 @@
 .product-card--skeleton .product-card__price {
     color: transparent;
     background-color: purple;
+}
+
+.product-cached {
+    outline: 1px solid #FDD835;
+}
+
+.product-card-cached-icon {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }

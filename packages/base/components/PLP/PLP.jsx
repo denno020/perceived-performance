@@ -1,17 +1,17 @@
 import ProductCard from "../ProductCard";
-import { usePLP } from './talons/usePLP';
-import classes from './PLP.module.css'
+import { usePLP } from "./talons/usePLP";
+import classes from "./PLP.module.css";
 import LoadingIndicator from "../LoadingIndicator/index.js";
 
 const PLP = () => {
-  const {items, hasMore, loadItems} = usePLP();
+  const { items, hasMore, loadItems } = usePLP();
 
   return (
     <>
       <div className={classes.headerContainer}>
         <div className={classes.header}>
           Wall Clocks
-          <img className={classes.headerImage} src="/wall-clock-scene.jpg"/>
+          <img className={classes.headerImage} src="/wall-clock-scene.jpg" />
         </div>
       </div>
       <ul className={classes.products}>
@@ -24,12 +24,16 @@ const PLP = () => {
           <li key={product.id}>
             <ProductCard
               product={product}
+              useCache={false}
+              fetchFirst={false}
             />
           </li>
         ))}
       </ul>
       {items.length > 0 && hasMore && (
-        <button className="btn--load" type="button" onClick={() => loadItems()}>Load Next</button>
+        <button className="btn--load" type="button" onClick={() => loadItems()}>
+          Load Next
+        </button>
       )}
     </>
   );

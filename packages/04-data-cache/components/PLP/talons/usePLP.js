@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { getItems } from "../../../util/get-items";
-import { getItem } from "../../../util/get-item";
 import cache from "../../../util/cache";
 
 export const usePLP = () => {
@@ -15,25 +14,27 @@ export const usePLP = () => {
   const loadItems = async (initialRequest = false) => {
     const productsCache = cache.getItem(`products-${pageToLoad.current}`);
     if (!initialRequest && productsCache !== null) {
-      setItems(prevItems => [...prevItems, ...productsCache.items]);
+      setItems((prevItems) => [...prevItems, ...productsCache.items]);
     }
     const data = await getItems({
-      page: pageToLoad.current
+      page: pageToLoad.current,
     });
     pageToLoad.current = pageToLoad.current + 1;
     setHasMore(pageToLoad.current <= data.totalPages);
     if (initialRequest && items.length > 0) {
       setItems(data.items);
     } else {
-      setItems(prevItems => [...prevItems, ...data.items]);
+      setItems((prevItems) => [...prevItems, ...data.items]);
     }
-  }
+  };
 
   useEffect(() => {
     loadItems(true);
-  }, [])
+  }, []);
 
   return {
-    items, hasMore, loadItems
-  }
-}
+    items,
+    hasMore,
+    loadItems,
+  };
+};
