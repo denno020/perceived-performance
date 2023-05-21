@@ -160,20 +160,3 @@
     justify-content: center;
     gap: 30px;
 }
-
-.relatedProductsContainer {
-
-}
-
-.relatedProductsTitle {
-    text-align: center;
-    font-size: 2.5em;
-}
-
-.relatedProducts {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}

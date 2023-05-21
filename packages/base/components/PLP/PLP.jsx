@@ -3,8 +3,8 @@ import { usePLP } from "./talons/usePLP";
 import classes from "./PLP.module.css";
 import LoadingIndicator from "../LoadingIndicator/index.js";
 
-const PLP = () => {
-  const { items, hasMore, loadItems } = usePLP();
+const PLP = (props) => {
+  const { items, hasMore, loadItems, useCache, fetchFirst } = usePLP(props);
 
   return (
     <>
@@ -24,8 +24,8 @@ const PLP = () => {
           <li key={product.id}>
             <ProductCard
               product={product}
-              useCache={false}
-              fetchFirst={false}
+              useCache={useCache}
+              fetchFirst={fetchFirst}
             />
           </li>
         ))}

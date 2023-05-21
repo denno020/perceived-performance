@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { getItems } from "../../../util/get-items";
-import { getItem } from "../../../util/get-item";
 import cache from "../../../util/cache";
+import { getItem } from "../../../util/get-item.js";
 
-export const usePLP = () => {
+export const usePLP = (props) => {
+  const { useCache, preFetch } = props;
   const pageToLoad = useRef(1);
   const [items, setItems] = useState(() => {
     const productsCache = cache.getItem(`products-${pageToLoad.current}`);
@@ -15,25 +16,37 @@ export const usePLP = () => {
   const loadItems = async (initialRequest = false) => {
     const productsCache = cache.getItem(`products-${pageToLoad.current}`);
     if (!initialRequest && productsCache !== null) {
-      setItems(prevItems => [...prevItems, ...productsCache.items]);
+      setItems((prevItems) => [...prevItems, ...productsCache.items]);
     }
-    const data = await getItems({
-      page: pageToLoad.current
-    });
+    const data = await getItems(
+      {
+        page: pageToLoad.current,
+      },
+      { useCache }
+    );
     pageToLoad.current = pageToLoad.current + 1;
     setHasMore(pageToLoad.current <= data.totalPages);
     if (initialRequest && items.length > 0) {
       setItems(data.items);
     } else {
-      setItems(prevItems => [...prevItems, ...data.items]);
+      setItems((prevItems) => [...prevItems, ...data.items]);
     }
-  }
+
+    if (preFetch) {
+      data.items.forEach((product) => {
+        getItem(product.id, { useCache: true });
+      });
+    }
+  };
 
   useEffect(() => {
     loadItems(true);
-  }, [])
+  }, []);
 
   return {
-    items, hasMore, loadItems
-  }
-}
+    ...props,
+    items,
+    hasMore,
+    loadItems,
+  };
+};

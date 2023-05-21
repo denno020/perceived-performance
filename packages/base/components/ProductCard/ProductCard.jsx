@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getItem } from "../../util/get-item.js";
+import { getItem } from "../../util/get-item";
 import { useStore } from "../../../base/store";
 import "./ProductCard.css";
 
@@ -12,7 +12,8 @@ const ProductCard = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    getItem(id).then((product) => {
+
+    getItem(id, { useCache }).then((product) => {
       navigate(`product/${id}`, { state: { product } });
     });
 
@@ -52,11 +53,6 @@ const ProductCard = (props) => {
       {isCached && <div className="product-card-cached-icon">⚡</div>}
     </div>
   );
-};
-
-ProductCard.defaultProps = {
-  fetchFirst: false,
-  useCache: false,
 };
 
 export default ProductCard;
