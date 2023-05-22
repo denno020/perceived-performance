@@ -1,19 +1,12 @@
+import { useAppContext } from "../../contexts/AppContext.jsx";
 import LoadingIndicator from "../LoadingIndicator";
 import RelatedProducts from "../RelatedProducts";
 import { usePDP } from "./talons/usePDP";
 import classes from "./PDP.module.css";
 
-const PDP = (props) => {
-  const {
-    product,
-    handleAddToCart,
-    isAddingToCart,
-    related,
-    browserCache,
-    fetchFirst,
-    useCache,
-  } = usePDP(props);
-  console.log({ useCache });
+const PDP = () => {
+  const { product, handleAddToCart, isAddingToCart, related } = usePDP();
+  const { sectionId, browserCache } = useAppContext();
 
   if (!product) {
     return (
@@ -31,19 +24,23 @@ const PDP = (props) => {
             <>
               <img
                 className={classes.previewImage}
-                src={product.previewImage}
+                src={`${product.previewImage}?section=${sectionId}`}
                 width="600"
                 alt=""
               />
               <img
                 className={classes.image}
-                src={product.image}
+                src={`${product.image}?section=${sectionId}`}
                 width="600"
                 alt=""
               />
             </>
           ) : (
-            <img src={product.image} width="600" alt="" />
+            <img
+              src={`${product.image}?section=${sectionId}`}
+              width="600"
+              alt=""
+            />
           )}
         </div>
         <div>
@@ -134,11 +131,7 @@ const PDP = (props) => {
         </div>
       </div>
 
-      <RelatedProducts
-        related={related}
-        fetchFirst={fetchFirst}
-        useCache={useCache}
-      />
+      <RelatedProducts related={related} />
     </div>
   );
 };

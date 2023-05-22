@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { getItems } from "../../../util/get-items";
 import cache from "../../../util/cache";
 import { getItem } from "../../../util/get-item.js";
+import { useAppContext } from "../../../contexts/AppContext.jsx";
 
 export const usePLP = (props) => {
-  const { useCache, preFetch } = props;
+  const { useCache, preFetch } = useAppContext();
   const pageToLoad = useRef(1);
   const [items, setItems] = useState(() => {
     const productsCache = cache.getItem(`products-${pageToLoad.current}`);

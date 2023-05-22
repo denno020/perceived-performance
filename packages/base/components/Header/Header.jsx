@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaHome } from "react-icons/fa";
+import { useAppContext } from "../../contexts/AppContext.jsx";
 import { useStore } from "../../store";
 import classes from "./Header.module.css";
 
-const Header = (props) => {
-  const { sectionId } = props;
+const Header = () => {
+  const { sectionId } = useAppContext();
   const { toggleIsCartVisible, cart } = useStore();
 
   const handleOpenCart = (e) => {

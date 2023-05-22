@@ -2,9 +2,11 @@ import ProductCard from "../ProductCard";
 import { usePLP } from "./talons/usePLP";
 import classes from "./PLP.module.css";
 import LoadingIndicator from "../LoadingIndicator/index.js";
+import { useAppContext } from "../../contexts/AppContext.jsx";
 
 const PLP = (props) => {
-  const { items, hasMore, loadItems, useCache, fetchFirst } = usePLP(props);
+  const { items, hasMore, loadItems } = usePLP(props);
+  const { useCache, fetchFirst } = useAppContext();
 
   return (
     <>

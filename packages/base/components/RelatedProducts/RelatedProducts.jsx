@@ -1,8 +1,10 @@
+import { useAppContext } from "../../contexts/AppContext.jsx";
 import ProductCard from "../ProductCard";
 import classes from "./RelatedProducts.module.css";
 
 const RelatedProducts = (props) => {
-  const { related, useCache, fetchFirst } = props;
+  const { related } = props;
+  const { useCache, fetchFirst } = useAppContext();
 
   if (!related || related.length === 0) return null;
 

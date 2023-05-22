@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useAppContext } from "../../../contexts/AppContext.jsx";
 import { useStore } from "../../../store";
 import cache from "../../../util/cache";
 import { getItem } from "../../../util/get-item.js";
 
-export const usePDP = (props) => {
-  const { optimisticUi, useCache } = props;
+export const usePDP = () => {
+  const { useCache, optimisticUi } = useAppContext();
+  console.log({ optimisticUi });
   const location = useLocation();
   const productId = Number(location.pathname.split("/").at(-1));
   const [product, setProduct] = useState(() => {
@@ -77,9 +79,8 @@ export const usePDP = (props) => {
   };
 
   return {
-    ...props,
     product,
-    handleAddToCart: optimisticUi ? handleAddToCartSlow : handleAddToCartFast,
+    handleAddToCart: optimisticUi ? handleAddToCartFast : handleAddToCartSlow,
     isAddingToCart,
     related,
   };
