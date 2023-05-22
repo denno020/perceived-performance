@@ -4,7 +4,6 @@ import classes from "./RelatedProducts.module.css";
 
 const RelatedProducts = (props) => {
   const { related } = props;
-  const { useCache, fetchFirst } = useAppContext();
 
   if (!related || related.length === 0) return null;
 
@@ -14,12 +13,7 @@ const RelatedProducts = (props) => {
       {related.length > 0 && (
         <div className={classes.relatedProducts}>
           {related.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              fetchFirst={fetchFirst}
-              useCache={useCache}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       )}

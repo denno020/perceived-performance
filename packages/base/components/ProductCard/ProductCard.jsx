@@ -32,13 +32,13 @@ const ProductCard = (props) => {
   const LinkComponent = (props) => {
     if (fetchFirst) {
       return (
-        <Link onClick={handleClick} to={`product/${id}`}>
+        <Link onClick={handleClick} to={`/${sectionId}/product/${id}`}>
           {props.children}
         </Link>
       );
     }
 
-    return <Link to={`product/${id}`}>{props.children}</Link>;
+    return <Link to={`/${sectionId}/product/${id}`}>{props.children}</Link>;
   };
 
   return (
