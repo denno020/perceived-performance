@@ -1,4 +1,7 @@
 .product-card {
+    --light-orange: #FDD835;
+    --dark-orange: #F57F17;
+    --highlight: var(--light-orange);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -64,7 +67,7 @@
 }
 
 .product-cached {
-    outline: 1px solid #FDD835;
+    outline: 1px solid var(--highlight);
 }
 
 .product-card-cached-icon {
