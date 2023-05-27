@@ -3,11 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from "../../contexts/AppContext.jsx";
 import { getItem } from "../../util/get-item";
 import { useStore } from "../../../base/store";
+import { useProductCard } from './talons/useProductCard';
 import "./ProductCard.css";
 
 const ProductCard = (props) => {
   const { sectionId, fetchFirst, useCache } = useAppContext();
-  const { product } = props;
+  const { product, ref } = useProductCard(props);
   const { id, name, price, previewImage } = product;
   const navigate = useNavigate();
   const { cachedProducts } = useStore();
@@ -49,7 +50,7 @@ const ProductCard = (props) => {
   };
 
   return (
-    <div className={`product-card${isCached ? " product-cached" : ""}`}>
+    <div ref={ref} className={`product-card${isCached ? " product-cached" : ""}`}>
       <div className="product-card__image-container">
         <LinkComponent>
           <img

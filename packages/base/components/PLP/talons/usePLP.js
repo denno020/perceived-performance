@@ -32,12 +32,6 @@ export const usePLP = (props) => {
     } else {
       setItems((prevItems) => [...prevItems, ...data.items]);
     }
-
-    if (preFetch) {
-      data.items.forEach((product) => {
-        getItem(product.id, { useCache: true });
-      });
-    }
   };
 
   useEffect(() => {
