@@ -9,7 +9,7 @@ const AppContextProvider = (props) => {
     if ([1, 3, 4, 5, 6, 7].includes(sectionId)) {
       document.querySelector("#root").classList.add("minHeight");
     }
-    document.title = `Timeless ${sectionId}`;
+    document.title = `Timeless - Demo ${sectionId}`;
   }, [sectionId]);
 
   const value = useMemo(

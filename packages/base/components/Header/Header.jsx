@@ -24,7 +24,7 @@ const Header = () => {
       <div className={classes.innerHeader}>
         <div className={classes.brandContainer}>
           <div className={classes.logo}>🕰️</div>
-          Timeless
+          Timeless {sectionId !== 0 && <sup>(Demo {sectionId})</sup>}
         </div>
         <nav className={classes.nav}>
           <Link to={homeLink} className={classes.link}>
