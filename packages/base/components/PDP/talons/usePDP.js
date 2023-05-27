@@ -7,7 +7,6 @@ import { getItem } from "../../../util/get-item.js";
 
 export const usePDP = () => {
   const { useCache, optimisticUi } = useAppContext();
-  console.log({ optimisticUi });
   const location = useLocation();
   const productId = Number(location.pathname.split("/").at(-1));
   const [product, setProduct] = useState(() => {
