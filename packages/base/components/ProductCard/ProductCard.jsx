@@ -12,16 +12,23 @@ const ProductCard = (props) => {
   const navigate = useNavigate();
   const { cachedProducts } = useStore();
 
+  const urlBase = sectionId === 0 ? `` : `/${sectionId}`;
+
   const handleClick = (e) => {
     e.preventDefault();
 
-    getItem(id, { useCache }).then((product) => {
-      navigate(`product/${id}`, { state: { product } });
-    });
-
-    setTimeout(() => {
-      navigate(`product/${id}`, { state: { product: false } });
+    const timeoutId = setTimeout(() => {
+      if (!location.pathname.includes('product')) {
+        navigate(`product/${id}`, { state: { product: false } });
+      }
     }, 1000);
+
+    getItem(id, { useCache }).then((product) => {
+      if (!location.pathname.includes('product')) {
+        clearTimeout(timeoutId);
+        navigate(`${urlBase}/product/${id}`, { state: { product } })
+      }
+    });
   };
 
   const isCached = useMemo(
@@ -32,13 +39,13 @@ const ProductCard = (props) => {
   const LinkComponent = (props) => {
     if (fetchFirst) {
       return (
-        <Link onClick={handleClick} to={`/${sectionId}/product/${id}`}>
+        <Link onClick={(e) => {!isCached && handleClick(e)}} to={`${urlBase}/product/${id}`}>
           {props.children}
         </Link>
       );
     }
 
-    return <Link to={`/${sectionId}/product/${id}`}>{props.children}</Link>;
+    return <Link to={`${urlBase}/product/${id}`}>{props.children}</Link>;
   };
 
   return (
