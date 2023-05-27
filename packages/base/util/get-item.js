@@ -2,7 +2,11 @@ import cache from "./cache.js";
 import { useStore } from "../store";
 
 export const getItem = (productId, opts) => {
-  const { useCache } = opts;
+  const { useCache, isPreFetching } = opts;
+
+  if (useCache && isPreFetching && cache.getItem(`product-${productId}`)) {
+    return Promise.resolve(); 
+  }
 
   return fetch(`http://localhost:3000/product/${productId}`)
     .then((res) => res.json())
