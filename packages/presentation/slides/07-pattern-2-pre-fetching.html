@@ -5,14 +5,8 @@
       <li class="fragment">Prevent users from waiting<span class="fragment">, <em>at all</em></span></li>
       <li class="fragment">Any resource can be pre-fetched<span class="fragment">, but</span></li>
       <li class="fragment">Best to stick to just data/text</li>
-      <li class="fragment">Skip images/media, unless absolutely sure <sup>Demo 5</sup></li>
-      <li class="fragment">Downsides?
-        <ul>
-          <li class="fragment">Increased bandwidth</li>
-          <li class="fragment">Storage limitations</li>
-          <li class="fragment">Users on slow connections</li>
-        </ul>
-      </li>
+      <li class="fragment">Skip images/media, unless absolutely sure</li>
+      <li class="fragment">When to pre-fetch?</li>
     </ul>
     <aside class="notes">
       <ul>
@@ -38,12 +32,12 @@
         </li>
         <li>
           🖱 For example, optimistically pre-fetching data is perfectly fine. That
-          data will be compressed on the server and then send to the browser to be
+          data will be compressed on the server and then sent to the browser to be
           uncompressed and rendered
         </li>
         <li>
           That data could include a second page of products, or a specific
-          products data
+          products' data
         </li>
         <li>
           Pre-fetching JS/CSS files could also be a good option, especially if
@@ -51,14 +45,18 @@
           that a user is going to go to
         </li>
         <li>
-          🖱 Pre-fetching image and other media, however, carries a lot more weight
+          🖱 Pre-fetching images and other media, however, carries a lot more weight
           in terms of bandwidth, so it would usually be a bad idea to pre-fetch,
-          especially if we're not sure if the user is definitely going to see it
+          especially if we're not sure if the user is going to see it
         </li>
         <li>
           If we know that the user absolutely has to see the image or media in
           order to continue, then go right ahead and pre-fetch, but otherwise it's
           not a good idea to optimistically pre-fetch images or other media
+        </li>
+        <li>
+          Knowing what to pre fetch is only part of the pattern, when to pre-fetch is just as important
+          There's a few options available to us, with pro's and con's for each
         </li>
         <li>DEMO</li>
         <li>🖱 Are there any downsides to pre-fetching?</li>
@@ -85,6 +83,32 @@
         </li>
       </ul>
     </aside>
+  </section>
+  <section>
+    <h2>Prefetching</h2>
+    <h3>When to pre-fetch</h3>
+    <ul>
+      <li>Immediately</li>
+      <li class="fragment">Network is idle</li>
+      <li class="fragment">Based on Viewport <sup>Demo 5</sup></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Pre-fetching</h2>
+    <ul>
+      <li>Prevent users from waiting<span>, <em>at all</em></span></li>
+      <li>Any resource can be pre-fetched<span>, but</span></li>
+      <li>Best to stick to just data/text</li>
+      <li>Skip images/media, unless absolutely sure</li>
+      <li>When to pre-fetch?</li>
+      <li class="fragment">Downsides?
+        <ul>
+          <li class="fragment">Increased bandwidth</li>
+          <li class="fragment">Storage limitations</li>
+          <li class="fragment">Users on slow connections</li>
+        </ul>
+      </li>
+    </ul>
   </section>
   <section>
     <h2>Pre-fetching</h2>
