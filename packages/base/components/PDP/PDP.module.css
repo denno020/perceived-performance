@@ -1,6 +1,22 @@
+.backContainer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 5px 0;
+}
+
+.backButton {
+    border: 0;
+    background: none;
+    padding: 0;
+}
+
+.backButton:hover {
+    color: var(--color-primary);
+}
+
 .container {
     max-width: var(--max-width);
-    margin: 30px auto;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;

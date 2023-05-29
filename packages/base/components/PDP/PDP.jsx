@@ -16,8 +16,15 @@ const PDP = () => {
     );
   }
 
+  const handleGoBack = () => {
+    window.history.go(-1);
+  }
+
   return (
     <div className={classes.wrapper}>
+      <div className={classes.backContainer}>
+        <button onClick={handleGoBack} className={classes.backButton}>&lt;- Back</button>
+      </div>
       <div className={classes.container}>
         <div className={classes.imageContainer}>
           {browserCache ? (
