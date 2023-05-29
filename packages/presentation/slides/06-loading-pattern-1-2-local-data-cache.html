@@ -13,7 +13,7 @@
           cache
         </li>
         <li>
-          Now they aren't really related, however the use of local data cache will
+          Now they aren't really directly related, however the use of local data cache will
           mean that we can prevent our users from having to see loading indicators
           more than necessary
         </li>
@@ -41,8 +41,8 @@
         </li>
         <li>
           📺 There's no need for either of those loading indicators, we should be
-          able to immediately render the same product data that we've already
-          downloaded, and then in the background, send off the APi request to get
+          able to immediately 🖱 render the same product data that we've already
+          downloaded, and then in the background, send off the API request to get
           updated product information, which we can then choose to render to the
           UI or just update our cache value
         </li>
@@ -71,6 +71,10 @@
           📺 The user doesn't need to wait again, and because we're still making the
           same API request to get the product data, they won't be stuck with stale
           data
+        </li>
+        <li>
+          Those with keen eyes might have also noticed a yellow border that was added around the
+          product card, this is just something I've added to be able to visualise that is in the cache
         </li>
       </ul>
     </aside>
@@ -104,7 +108,7 @@
           straight forward it is to set up this pattern using vanilla JS and your library of choice</li>
         <li>🖱 This is the code that I've used to implement cache</li>
         <li>There's no magic within cache, it's just a singleton that has some methods on it to set and get items</li>
-        <li>🖱 Then to read from cache and initialise state.</li>
+        <li>🖱 Then this is all we need to read from cache and initialise state.</li>
         <li>As I mentioned earlier, I'm using React to render the app, so that's why the use of useState here</li>
       </ul>
     </aside>
@@ -126,7 +130,7 @@
     <aside class="notes">
       <ul>
         <li>
-          Local data cache can either be the method I just used, store all in
+          Local data cache can either be the method I just used, stored all in
           memory, meaning if a user leaves the website and comes back, or maually
           refreshes the page, all of that cache is cleared
         </li>
@@ -138,7 +142,7 @@
         </li>
         <li>
           🖱 We're not storing compressed data, meaning the space on disk can't be
-          minimised like it is within the network transfer to download the dta, so
+          minimised like it is within the network transfer to download the data, so
           we have to be wary to pick a technology that affords us enough space
         </li>
         <li>
@@ -152,7 +156,7 @@
           more storage space
         </li>
         <li>
-          Then we just ned to swap out our in memory cache singleton for an interface to the storage method of choice
+          🖱 Then we just need to swap out our in memory cache singleton for an interface to the storage method of choice
         </li>
       </ul>
     </aside>
