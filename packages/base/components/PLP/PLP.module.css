@@ -25,12 +25,15 @@
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 .products {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
-    max-width: var(--max-width);
-    margin: 0 auto;
 }
 
 .loadingIndicatorContainer {

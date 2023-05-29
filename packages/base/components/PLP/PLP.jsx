@@ -16,27 +16,29 @@ const PLP = (props) => {
           <img className={classes.headerImage} src="/wall-clock-scene.jpg" />
         </div>
       </div>
-      <ul className={classes.products}>
-        {items.length === 0 && (
-          <li className={classes.loadingIndicatorContainer}>
-            <LoadingIndicator />
-          </li>
+      <div className={classes.container}>
+        <ul className={classes.products}>
+          {items.length === 0 && (
+            <li className={classes.loadingIndicatorContainer}>
+              <LoadingIndicator />
+            </li>
+          )}
+          {items.map((product) => (
+            <li key={product.id}>
+              <ProductCard
+                product={product}
+                useCache={useCache}
+                fetchFirst={fetchFirst}
+              />
+            </li>
+          ))}
+        </ul>
+        {items.length > 0 && hasMore && (
+          <button className="btn--load" type="button" onClick={() => loadItems()}>
+            Load Next
+          </button>
         )}
-        {items.map((product) => (
-          <li key={product.id}>
-            <ProductCard
-              product={product}
-              useCache={useCache}
-              fetchFirst={fetchFirst}
-            />
-          </li>
-        ))}
-      </ul>
-      {items.length > 0 && hasMore && (
-        <button className="btn--load" type="button" onClick={() => loadItems()}>
-          Load Next
-        </button>
-      )}
+      </div>
     </>
   );
 };
