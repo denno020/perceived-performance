@@ -31,8 +31,6 @@ const Header = () => {
             <FaHome />
             <span>Home</span>
           </Link>
-        </nav>
-        <div>
           <Link
             to={homeLink}
             onClick={handleOpenCart}
@@ -44,7 +42,8 @@ const Header = () => {
               <span className={classes.cartCount}>{cart.length}</span>
             )}
           </Link>
-        </div>
+        </nav>
+
       </div>
     </header>
   );

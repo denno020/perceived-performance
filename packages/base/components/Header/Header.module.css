@@ -6,10 +6,22 @@
     align-items: center;
     padding: 30px 20px 10px;
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 50px;
+    gap: 20px;
     max-width: var(--max-width);
     margin: 0 auto;
+}
+
+@media (max-width: 559px) {
+    .innerHeader {
+        grid-template-rows: auto auto;
+    }
+}
+
+@media (min-width: 560px) {
+    .innerHeader {
+        grid-template-columns: auto 1fr;
+        gap: 50px;
+    }
 }
 
 .brandContainer {
@@ -28,6 +40,7 @@
 .nav {
     display: flex;
     gap: 25px;
+    justify-content: space-between;
 }
 
 .link {
