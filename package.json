@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "cp _redirects dist/_redirects",
     "preview": "vite preview",
     "server": "node server.js",
     "present": "cd packages/presentation && pnpm start"
