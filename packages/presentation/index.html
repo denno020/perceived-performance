@@ -85,7 +85,27 @@
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
-    <script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
+      import { set, ref, getDatabase } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyBb4-iG5zYKztXVTvqe4JN3tOOV03xIqeI",
+        authDomain: "perceived-performance.firebaseapp.com",
+        databaseURL: "https://perceived-performance-default-rtdb.firebaseio.com",
+        projectId: "perceived-performance",
+        storageBucket: "perceived-performance.appspot.com",
+        messagingSenderId: "254890518854",
+        appId: "1:254890518854:web:5202efaca1cf115781dd47",
+        measurementId: "G-X24DK5291C"
+      };
+
+      const app = initializeApp(firebaseConfig);
+
+      const db = getDatabase();
+      const dbRef = (query) => ref(db, query);
+      const stepRef = dbRef('/');
+
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
       // - https://revealjs.com/config/
@@ -106,6 +126,14 @@
           },
         ],
       });
+
+      // When a fragment is shown, check if there is a demo-step data atribute, which will indicate
+      // that guests can move to the next step in the demo app
+      Reveal.on( 'fragmentshown', event => {
+        if (event.fragment.dataset?.demoStep) {
+          set(stepRef, { step: Number(event.fragment.dataset.demoStep), isDenno: true })
+        }
+      } );
     </script>
     <script>
       let iconTracker = 0;
