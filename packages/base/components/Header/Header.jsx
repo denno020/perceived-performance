@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart, FaHome } from "react-icons/fa";
 import { useAppContext } from "../../contexts/AppContext.jsx";
 import { useStore } from "../../store";
+import DemoSelect from './DemoSelect.jsx';
 import classes from "./Header.module.css";
 
 const Header = () => {
@@ -24,7 +25,7 @@ const Header = () => {
       <div className={classes.innerHeader}>
         <div className={classes.brandContainer}>
           <div className={classes.logo}>🕰️</div>
-          Timeless {sectionId !== 0 && <sup>(Demo {sectionId})</sup>}
+          Timeless {<sup>(<DemoSelect />)</sup>}
         </div>
         <nav className={classes.nav}>
           <Link to={homeLink} className={classes.link}>
