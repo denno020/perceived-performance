@@ -4,6 +4,8 @@ import { useAppContext } from "../../../contexts/AppContext.jsx";
 import { useStore } from "../../../store";
 import cache from "../../../util/cache";
 import { getItem } from "../../../util/get-item.js";
+import { getRelated } from '../../../util/get-related.js'
+import { addToCart } from '../../../util/cart.js'
 
 export const usePDP = () => {
   const { useCache, optimisticUi } = useAppContext();
@@ -26,21 +28,13 @@ export const usePDP = () => {
       addToCachedProducts(product.id);
     });
 
-    fetch(`http://localhost:3000/related`)
-      .then((res) => res.json())
-      .then((res) => {
-        setRelated(res.related);
-      });
+    getRelated().then((related) => {
+      setRelated(related);
+    })
   }, [productId]);
 
   const fetchItem = (product) => {
-    return fetch("http://localhost:3000/addToCart", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ productId: product.id }),
-    });
+    return addToCart(product.id);
   };
 
   const peekCart = () => {
@@ -54,7 +48,6 @@ export const usePDP = () => {
   const handleAddToCartSlow = () => {
     setIsAddingToCart(true);
     fetchItem(product)
-      .then((res) => res.json())
       .then((res) => {
         const cart = res.cart;
         setCart(cart);
@@ -65,7 +58,6 @@ export const usePDP = () => {
 
   const handleAddToCartFast = () => {
     fetchItem(product)
-      .then((res) => res.json())
       .then((res) => {
         const cart = res.cart;
         setCart(cart);

@@ -6,14 +6,6 @@ import "../packages/base/css/styles.css";
 import "./index.css";
 import "./fonts.css";
 
-// fetch('http://localhost:3000/getCart').then(res => res.json()).then((res) => {
-//   useStore.setState({ cart: res.cart })
-// })
-// Clear contents of cart on initial render to ensure cart items aren't leaked across demo's
-fetch("http://localhost:3000/clearCart", {
-  method: "DELETE",
-});
-
 const root = createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

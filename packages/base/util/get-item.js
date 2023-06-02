@@ -1,5 +1,6 @@
 import cache from "./cache.js";
 import { useStore } from "../store";
+import { loadItem } from './products.js';
 
 export const getItem = (productId, opts) => {
   const { useCache, isPreFetching } = opts;
@@ -8,24 +9,30 @@ export const getItem = (productId, opts) => {
     return Promise.resolve(); 
   }
 
-  return fetch(`http://localhost:3000/product/${productId}`)
-    .then((res) => res.json())
-    .then((res) => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      const product = loadItem(productId);
+
       if (useCache) {
         cache.addToCache({
           key: `product-${productId}`,
-          value: JSON.stringify(res.product),
+          value: JSON.stringify(product),
         });
         useStore.setState((prevState) => {
           const cachedIds = new Set([...prevState.cachedProducts]);
           cachedIds.add(productId);
-
+  
           return {
             ...prevState,
             cachedProducts: Array.from(cachedIds),
           };
         });
       }
-      return res.product;
-    });
+
+      
+  
+      res(product);
+
+    }, 500);
+  })
 };

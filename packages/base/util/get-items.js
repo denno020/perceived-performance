@@ -1,16 +1,24 @@
 import cache from "./cache";
+import { loadPage, getPageCount } from './products';
 
 export const getItems = ({ page }, opts) => {
-  return fetch(`http://localhost:3000/products/${page}`)
-    .then((res) => res.json())
-    .then((res) => {
-      const { useCache } = opts;
+  const { useCache } = opts;
+
+  return new Promise((res) => {
+    setTimeout(() => {
+      const products = loadPage(page);
+      const pageCount = getPageCount();
+
+      const result = { items: products, totalPages: pageCount };
+
       if (useCache) {
         cache.addToCache({
           key: `products-${page}`,
-          value: JSON.stringify(res),
+          value: JSON.stringify(result),
         });
       }
-      return res;
-    });
+
+      res(result)
+    }, 500)
+  })
 };
