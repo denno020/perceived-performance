@@ -1,9 +1,9 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export const useStore = create((set) => ({
+  presentationStep: 0,
   isCartVisible: false,
-  toggleIsCartVisible: () =>
-    set((state) => ({ ...state, isCartVisible: !state.isCartVisible })),
+  toggleIsCartVisible: () => set((state) => ({ ...state, isCartVisible: !state.isCartVisible })),
   cart: [],
   setCart: (cart) => set(() => ({ cart })),
 
@@ -11,6 +11,6 @@ export const useStore = create((set) => ({
   addToCachedProducts: (productId) =>
     set((state) => ({
       ...state,
-      cachedProducts: [...state.cachedProducts, productId],
-    })),
+      cachedProducts: [...state.cachedProducts, productId]
+    }))
 }));
