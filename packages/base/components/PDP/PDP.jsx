@@ -1,8 +1,8 @@
-import { useAppContext } from "../../contexts/AppContext.jsx";
-import LoadingIndicator from "../LoadingIndicator";
-import RelatedProducts from "../RelatedProducts";
-import { usePDP } from "./talons/usePDP";
-import classes from "./PDP.module.css";
+import { useAppContext } from '../../contexts/AppContext.jsx';
+import LoadingIndicator from '../LoadingIndicator';
+import RelatedProducts from '../RelatedProducts';
+import { usePDP } from './talons/usePDP';
+import classes from './PDP.module.css';
 
 const PDP = () => {
   const { product, handleAddToCart, isAddingToCart, related } = usePDP();
@@ -18,12 +18,14 @@ const PDP = () => {
 
   const handleGoBack = () => {
     window.history.go(-1);
-  }
+  };
 
   return (
     <div className={classes.wrapper}>
       <div className={classes.backContainer}>
-        <button onClick={handleGoBack} className={classes.backButton}>&lt;- Back</button>
+        <button onClick={handleGoBack} className={classes.backButton}>
+          &lt;- Back
+        </button>
       </div>
       <div className={classes.container}>
         <div className={classes.imageContainer}>
@@ -35,19 +37,10 @@ const PDP = () => {
                 width="600"
                 alt=""
               />
-              <img
-                className={classes.image}
-                src={`${product.image}?section=${sectionId}`}
-                width="600"
-                alt=""
-              />
+              <img className={classes.image} src={`${product.image}?section=${sectionId}`} width="600" alt="" />
             </>
           ) : (
-            <img
-              src={`${product.image}?section=${sectionId}`}
-              width="600"
-              alt=""
-            />
+            <img src={`${product.image}?section=${sectionId}`} width="600" alt="" className={classes.singleImage} />
           )}
         </div>
         <div>
@@ -57,39 +50,16 @@ const PDP = () => {
           <div>{product.shortDesc}</div>
           <div className={classes.price}>${product.price}</div>
           <div className={classes.addToCartContainer}>
-            <button
-              onClick={handleAddToCart}
-              className={classes.addToCartBtn}
-              disabled={isAddingToCart}
-            >
-              {isAddingToCart ? "Adding..." : "Add to Cart"}
+            <button onClick={handleAddToCart} className={classes.addToCartBtn} disabled={isAddingToCart}>
+              {isAddingToCart ? 'Adding...' : 'Add to Cart'}
             </button>
           </div>
         </div>
 
         <div className={classes.tab}>
-          <input
-            onChange={() => {}}
-            checked="checked"
-            id="tab1"
-            type="radio"
-            name="pct"
-            className={classes.input1}
-          />
-          <input
-            onChange={() => {}}
-            id="tab2"
-            type="radio"
-            name="pct"
-            className={classes.input2}
-          />
-          <input
-            onChange={() => {}}
-            id="tab3"
-            type="radio"
-            name="pct"
-            className={classes.input3}
-          />
+          <input onChange={() => {}} checked="checked" id="tab1" type="radio" name="pct" className={classes.input1} />
+          <input onChange={() => {}} id="tab2" type="radio" name="pct" className={classes.input2} />
+          <input onChange={() => {}} id="tab3" type="radio" name="pct" className={classes.input3} />
           <nav>
             <ul>
               <li className={classes.tab1}>
@@ -111,21 +81,16 @@ const PDP = () => {
             <div className={classes.tab2}>
               <h2>Additional Information</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Laborum nesciunt ipsum dolore error repellendus officiis aliquid
-                a, vitae reprehenderit, accusantium vero, ad. Obcaecati numquam
-                sapiente cupiditate. Praesentium eaque, quae error!
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum nesciunt ipsum dolore error
+                repellendus officiis aliquid a, vitae reprehenderit, accusantium vero, ad. Obcaecati numquam sapiente
+                cupiditate. Praesentium eaque, quae error!
               </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Perferendis, maiores.
-              </p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, maiores.</p>
             </div>
             <div className={classes.tab3}>
               <h2>Reviews</h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio,
-                nobis culpa rem, vitae earum aliquid.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, nobis culpa rem, vitae earum aliquid.
               </p>
             </div>
           </section>
