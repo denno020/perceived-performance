@@ -1,32 +1,26 @@
-import { FaTimes } from "react-icons/fa";
-import classnames from "classnames";
-import { useStore } from "../../store";
-import classes from "./Cart.module.css";
+import { FaTimes } from 'react-icons/fa';
+import classnames from 'classnames';
+import { useStore } from '../../store';
+import { clearCart } from '../../util/cart';
+import classes from './Cart.module.css';
 
 const Cart = () => {
   const { cart, isCartVisible, toggleIsCartVisible, setCart } = useStore();
 
-  const clearCart = () => {
-    fetch("http://localhost:3000/clearCart", {
-      method: "DELETE",
-    }).then(() => {
-      setCart([]);
-      toggleIsCartVisible();
-    });
+  const emptyCart = () => {
+    clearCart();
+    setCart([]);
+    toggleIsCartVisible();
   };
 
-  const currencyFormatter = new Intl.NumberFormat("en-AU", {
-    style: "currency",
-    currency: "AUD",
+  const currencyFormatter = new Intl.NumberFormat('en-AU', {
+    style: 'currency',
+    currency: 'AUD'
   });
-  const total = currencyFormatter.format(
-    cart.reduce((acc, product) => acc + Number(product.price), 0)
-  );
+  const total = currencyFormatter.format(cart.reduce((acc, product) => acc + Number(product.price), 0));
 
   return (
-    <div
-      className={classnames(classes.cart, { [classes.visible]: isCartVisible })}
-    >
+    <div className={classnames(classes.cart, { [classes.visible]: isCartVisible })}>
       <button className={classes.closeButton} onClick={toggleIsCartVisible}>
         <FaTimes />
       </button>
@@ -49,7 +43,7 @@ const Cart = () => {
       </ul>
       <div className={classes.checkboutBtnContainer}>
         <button className={classes.checkoutBtn}>Checkout</button>
-        <button onClick={clearCart} className={classes.clearCartBtn}>
+        <button onClick={emptyCart} className={classes.clearCartBtn}>
           Clear Cart
         </button>
       </div>
