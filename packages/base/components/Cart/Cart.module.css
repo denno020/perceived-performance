@@ -19,6 +19,13 @@
     transform: translateX(0);
 }
 
+@media (max-width: 650px) {
+    .peeking {
+        transform: translateX(80%);
+    }
+
+}
+
 .closeButton {
     position: absolute;
     top: 5px;

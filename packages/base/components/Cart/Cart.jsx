@@ -5,12 +5,12 @@ import { clearCart } from '../../util/cart';
 import classes from './Cart.module.css';
 
 const Cart = () => {
-  const { cart, isCartVisible, toggleIsCartVisible, setCart } = useStore();
+  const { cart, cartVisibility, toggleCartVisibility, setCart } = useStore();
 
   const emptyCart = () => {
     clearCart();
     setCart([]);
-    toggleIsCartVisible();
+    toggleCartVisibility('hidden');
   };
 
   const currencyFormatter = new Intl.NumberFormat('en-AU', {
@@ -20,8 +20,14 @@ const Cart = () => {
   const total = currencyFormatter.format(cart.reduce((acc, product) => acc + Number(product.price), 0));
 
   return (
-    <div className={classnames(classes.cart, { [classes.visible]: isCartVisible })}>
-      <button className={classes.closeButton} onClick={toggleIsCartVisible}>
+    <div
+      className={classnames(
+        classes.cart,
+        { [classes.visible]: ['visible', 'peeking'].includes(cartVisibility) },
+        { [classes.peeking]: cartVisibility === 'peeking' }
+      )}
+    >
+      <button className={classes.closeButton} onClick={() => toggleCartVisibility('hidden')}>
         <FaTimes />
       </button>
       <header className={classes.header}>
