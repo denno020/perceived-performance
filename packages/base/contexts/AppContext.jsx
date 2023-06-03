@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo } from "react";
+import { createContext, useContext, useEffect, useMemo } from 'react';
 
 const AppContext = createContext();
 
@@ -7,9 +7,9 @@ const AppContextProvider = (props) => {
 
   useEffect(() => {
     if ([1, 3, 4, 5, 6, 7].includes(sectionId)) {
-      document.querySelector("#root").classList.add("minHeight");
+      document.querySelector('#root').classList.add('minHeight');
     }
-    document.title = `Timeless - Demo ${sectionId}`;
+    document.title = `Timeless - ${sectionId === 0 ? 'Base' : `Demo ${sectionId}`}`;
   }, [sectionId]);
 
   const value = useMemo(
@@ -20,7 +20,7 @@ const AppContextProvider = (props) => {
       preFetch: [5, 6, 7].includes(sectionId),
       browserCache: [6, 7].includes(sectionId),
       optimisticUi: [7].includes(sectionId),
-      foldFooter: ![0, 1].includes(sectionId),
+      foldFooter: ![0, 1].includes(sectionId)
     }),
     [sectionId]
   );
