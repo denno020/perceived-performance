@@ -1,8 +1,8 @@
-import ProductCard from "../ProductCard";
-import { usePLP } from "./talons/usePLP";
-import classes from "./PLP.module.css";
-import LoadingIndicator from "../LoadingIndicator/index.js";
-import { useAppContext } from "../../contexts/AppContext.jsx";
+import ProductCard from '../ProductCard';
+import { usePLP } from './talons/usePLP';
+import classes from './PLP.module.css';
+import LoadingIndicator from '../LoadingIndicator/index.js';
+import { useAppContext } from '../../contexts/AppContext.jsx';
 
 const PLP = (props) => {
   const { items, hasMore, loadItems } = usePLP(props);
@@ -13,7 +13,7 @@ const PLP = (props) => {
       <div className={classes.headerContainer}>
         <div className={classes.header}>
           Wall Clocks
-          <img className={classes.headerImage} src="/wall-clock-scene.jpg" />
+          <img className={classes.headerImage} src="/wall-clock-scene.avif" />
         </div>
       </div>
       <div className={classes.container}>
@@ -25,11 +25,7 @@ const PLP = (props) => {
           )}
           {items.map((product) => (
             <li key={product.id}>
-              <ProductCard
-                product={product}
-                useCache={useCache}
-                fetchFirst={fetchFirst}
-              />
+              <ProductCard product={product} useCache={useCache} fetchFirst={fetchFirst} />
             </li>
           ))}
         </ul>
