@@ -19,8 +19,7 @@
 .headerImage {
     position: absolute;
     right: 0;
-    top: -160px;
-    width: 570px;
+    top: 0;
     -webkit-mask-image:-webkit-gradient(linear, right top, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
