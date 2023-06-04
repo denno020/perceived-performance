@@ -2,8 +2,14 @@
   <section>
     <h2>Pre-fetching</h2>
     <ul>
-      <li class="fragment">Prevent users from waiting<span class="fragment">, <em>at all</em></span></li>
-      <li class="fragment">Any resource can be pre-fetched<span class="fragment">, but</span></li>
+      <li class="fragment"
+        >Prevent users from waiting<span class="fragment"
+          >, <em>at all</em></span
+        ></li
+      >
+      <li class="fragment"
+        >Any resource can be pre-fetched<span class="fragment">, but</span></li
+      >
       <li class="fragment">Best to stick to just data/text</li>
       <li class="fragment">Skip images/media, unless absolutely sure</li>
       <li class="fragment">When to pre-fetch?</li>
@@ -11,13 +17,9 @@
     <aside class="notes">
       <ul>
         <li>
-          Now that we have introduced our local data cache, we can talk about the
-          next pattern, pre-fetching
-        </li>
-        <li>
-          The goal of this pattern is to 🖱 prevent the user from having to wait 🖱 at
-          all, giving the user the experience of visiting the product page the
-          second time, but without having yet visited it
+          The goal of this pattern is to 🖱 prevent the user from having to wait
+          🖱 at all, giving the user the experience of visiting the product page
+          the second time, but without having yet visited it
         </li>
         <li>
           Pre-fetching is simply downloading resources before the user has asked
@@ -26,14 +28,14 @@
         </li>
         <li>What kinds of things could we pre-fetch?</li>
         <li>
-          🖱 Literally anything can be pre-fetched,🖱 however we do want to consider
-          our users experience and situation before going ahead and pre-fetching
-          everything
+          🖱 Literally anything can be pre-fetched,🖱 however we do want to
+          consider our users experience and situation before going ahead and
+          pre-fetching everything
         </li>
         <li>
-          🖱 For example, optimistically pre-fetching data is perfectly fine. That
-          data will be compressed on the server and then sent to the browser to be
-          uncompressed and rendered
+          🖱 For example, optimistically pre-fetching data is perfectly fine.
+          That data will be compressed on the server and then sent to the
+          browser to be uncompressed and rendered
         </li>
         <li>
           That data could include a second page of products, or a specific
@@ -45,18 +47,19 @@
           that a user is going to go to
         </li>
         <li>
-          🖱 Pre-fetching images and other media, however, carries a lot more weight
-          in terms of bandwidth, so it would usually be a bad idea to pre-fetch,
-          especially if we're not sure if the user is going to see it
+          🖱 Pre-fetching images and other media, however, carries a lot more
+          weight in terms of bandwidth, so it would usually be a bad idea to
+          pre-fetch, especially if we're not sure if the user is going to see it
         </li>
         <li>
           If we know that the user absolutely has to see the image or media in
-          order to continue, then go right ahead and pre-fetch, but otherwise it's
-          not a good idea to optimistically pre-fetch images or other media
+          order to continue, then go right ahead and pre-fetch, but otherwise
+          it's not a good idea to optimistically pre-fetch images or other media
         </li>
         <li>
-          Knowing what to pre fetch is only part of the pattern, 🖱 when to pre-fetch is just as important
-          There's a few options available to us, with pro's and con's for each
+          Knowing what to pre fetch is only part of the pattern, 🖱 when to
+          pre-fetch is just as important There's a few options available to us,
+          with pro's and con's for each
         </li>
       </ul>
     </aside>
@@ -67,30 +70,56 @@
     <ul>
       <li>Immediately</li>
       <li class="fragment">Network is idle</li>
-      <li class="fragment">Based on Viewport <sup>Demo 5</sup></li>
+      <li class="fragment" data-demo-step="5"
+        >Based on Viewport <sup>Demo 5</sup></li
+      >
     </ul>
     <aside class="notes">
       <ul>
-        <li>One of the easiest options to implement is immediate pre-fetching</li>
-        <li>By immediate, I mean pre-fetching as soon as you know what the data on the other end would look like</li>
-        <li>In this example, that would be as soon as I know all of the products that are rendered on the category page, as they're the products that a user will click to get to the product page</li>
-        <li>Next is when the network is idle</li>
-        <li>This one is a little trickier to implement, it involves waiting until the network isn't doing anything else (that would likely be higher priority), and then start pre-fetching</li>
+        <li
+          >One of the easiest options to implement is immediate pre-fetching</li
+        >
+        <li
+          >By immediate, I mean pre-fetching as soon as you know what the data
+          on the other end would look like</li
+        >
+        <li
+          >In this example, that would be as soon as I know all of the products
+          that are rendered on the category page, as they're the products that a
+          user will click to get to the product page</li
+        >
+        <li>Next is when the 🖱 network is idle</li>
+        <li
+          >This one is a little trickier to implement, it involves waiting until
+          the network isn't doing anything else (that would likely be higher
+          priority), and then start pre-fetching</li
+        >
         <li>Making a call as to when the network is idle is the tricky part</li>
-        <li>Another option, and one that I've gone with in this demo, is to only pre-fetch products whose product cards are rendered within the viewport</li>
-        <li>A user can only realistically click on a product card that is within the viewport, so we can be confident that anything outside of the viewport isn't going to be used</li>
+        <li
+          >Another option, and one that I've gone with in this demo, is to only
+          pre-fetch products whose product cards are 🖱 rendered within the
+          viewport</li
+        >
+        <li
+          >A user can only realistically click on a product card that is within
+          the viewport, so we can be confident that anything outside of the
+          viewport isn't going to be used</li
+        >
       </ul>
     </aside>
   </section>
   <section>
     <h2>Pre-fetching</h2>
     <ul>
-      <li>Prevent users from waiting<span>, <em>at all</em></span></li>
+      <li
+        >Prevent users from waiting<span>, <em>at all</em></span></li
+      >
       <li>Any resource can be pre-fetched<span>, but</span></li>
       <li>Best to stick to just data/text</li>
       <li>Skip images/media, unless absolutely sure</li>
       <li>When to pre-fetch?</li>
-      <li class="fragment">Downsides?
+      <li class="fragment"
+        >Downsides?
         <ul>
           <li class="fragment">Increased bandwidth</li>
           <li class="fragment">Storage limitations</li>
@@ -102,25 +131,28 @@
       <ul>
         <li>🖱 Are there any downsides to pre-fetching?</li>
         <li>
-          🖱 Pre-feetching is using more of the users downloda bandwith, however if
-          we're sticking only to downloading data, and that data is compressed on
-          the server before being passed to the browser, then that bandwidth
-          increase will usually be negligible
+          🖱 Pre-feetching is using more of the users downloda bandwith, however
+          if we're sticking only to downloading data, and that data is
+          compressed on the server before being passed to the browser, then that
+          bandwidth increase will usually be negligible
         </li>
         <li>
           Consider keeping track of what has been pre-fetched, so you're not
           pre-fetching the same thing twice
         </li>
-        <li>🖱 As mentioned earlier, there are storage limitations within the browser</li>
+        <li
+          >🖱 As mentioned earlier, there are storage limitations within the
+          browser</li
+        >
         <li>🖱 A user is on a slow connection</li>
         <li>
-          In this instance, we might want to alter our pre-fetching strategy depending on the users
-          connection.
+          In this instance, we might want to alter our pre-fetching strategy
+          depending on the users connection.
         </li>
         <li>
           For example, if they have a good connection, then we might be a little
           more optimistic in pre-fetching, but if they have a poor connection,
-          then we might be a little more conservative 🖱 
+          then we might be a little more conservative 🖱
         </li>
       </ul>
     </aside>
@@ -130,7 +162,8 @@
     <h3>Slow Network</h3>
     <ul>
       <li>Network Information API</li>
-      <li class="fragment">effectiveType
+      <li class="fragment"
+        >effectiveType
         <ul>
           <li class="fragment">slow-2g</li>
           <li class="fragment">2g</li>
@@ -148,13 +181,17 @@
       </li>
       <li>This will give a value of 🖱 "slow-2g", 🖱 "2g", 🖱 "3g" or 🖱 "4g".</li>
       <li>
-        We could also use the 🖱 type value to determine if the user is likely on a
-        metered connection or not
+        We could also use the 🖱 type value to determine if the user is likely on
+        a metered connection or not
       </li>
-      <li>A combination of these parameters will give us a reasonable understanding of the connection that the user is current working with</li>
+      <li
+        >A combination of these parameters will give us a reasonable
+        understanding of the connection that the user is current working
+        with</li
+      >
       <li>
-        Another property that is available on the Network Information API is
-        🖱 saveData, which tells the browser if the user has explicitly said that
+        Another property that is available on the Network Information API is 🖱
+        saveData, which tells the browser if the user has explicitly said that
         they are saving data, in which case, as responsible developers, we would
         disable any pre-fetching.
       </li>
@@ -163,11 +200,14 @@
   <section>
     <h2>Pre-fetching</h2>
     <ul>
-      <li>Prevent users from waiting<span>, <em>at all</em></span></li>
+      <li
+        >Prevent users from waiting<span>, <em>at all</em></span></li
+      >
       <li>Any resource can be pre-fetched<span>, but</span></li>
       <li>Best to stick to just data/text</li>
       <li>Skip images/media, unless absolutely sure <sup>Demo 5</sup></li>
-      <li>Downsides?
+      <li
+        >Downsides?
         <ul>
           <li>Increased bandwidth</li>
           <li>Storage limitations</li>

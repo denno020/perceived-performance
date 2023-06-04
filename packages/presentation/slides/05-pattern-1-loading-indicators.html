@@ -4,14 +4,14 @@
     <li class="fragment">Not using loading indicators</li>
     <li class="fragment">Well using them sparingly <sup>Demo 2</sup></li>
     <li class="fragment">Show's exactly when a user is being made to wait</li>
-    <li class="fragment">Best of both worlds? <sup>Demo 3</sup></li>
-
+    <li class="fragment" data-demo-step="3"
+      >Best of both worlds? <sup>Demo 3</sup></li
+    >
   </ul>
   <aside class="notes">
     <ul>
       <li>
-        The first actual pattern I want to talk about are loading indicators, more
-        specifically, 🖱 not using loading indicators, 🖱 well using them
+        More specifically, 🖱 not using loading indicators, 🖱 well using them
         sparingly
       </li>
       <li>
@@ -25,13 +25,13 @@
         transition
       </li>
       <li>
-        📺 When I click on a product on the category page, we are taken to the next
-        view immediately, with a loading indicator being displayed to show that
-        data is being loaded
+        📺 When I click on a product on the category page, we are taken to the
+        next view immediately, with a loading indicator being displayed to show
+        that data is being loaded
       </li>
       <li>
-        📺 Feels pretty fast, even with the added server delay, no reason to think
-        that it would be perceived as slow
+        📺 Feels pretty fast, even with the added server delay, no reason to
+        think that it would be perceived as slow
       </li>
       <li>📺 Users know exactly what is happening at all times</li>
       <li>📺 Now, let's have a look at this next example (Demo 3)</li>
@@ -39,8 +39,8 @@
         📺 We have the same code, but we're not displaying a loading indicator
       </li>
       <li>
-        📺 In this demo, I click on a product and then the very next thing that I
-        see, is that product
+        📺 In this demo, I click on a product and then the very next thing that
+        I see, is that product
       </li>
       <li>📺 Did I have to wait? Did I perceive that I had to wait?</li>
       <li>📺 Which one feels faster?</li>
@@ -50,38 +50,37 @@
         website, and saying that the competitors was faster.
       </li>
       <li>
-        📺 We were using a loading indicator as a result of all interactions where
-        a user does have to wait
+        📺 We were using a loading indicator as a result of all interactions
+        where a user does have to wait
       </li>
       <li>📺 The competitors website wasn't</li>
       <li>
-        📺 Even though, looking at the raw numbers, the rquests in the website we
-        built were resolving just as fast, and sometimes faster, the client felt
-        that their site was slower, because they could see exatly when they were
-        being made to wait
+        📺 Even though, looking at the raw numbers, the rquests in the website
+        we built were resolving just as fast, and sometimes faster, the client
+        felt that their site was slower, because they could see exatly when they
+        were being made to wait
       </li>
       <li>
-        📺 The issue that we had with the competitors implementation, and the reason
-        we didn't want to go the same route, is that when a user clicks, nothing
-        actually happens until the network request resolves.
+        📺 The issue that we had with the competitors implementation, and the
+        reason we didn't want to go the same route, is that when a user clicks,
+        nothing actually happens until the network request resolves.
       </li>
       <li>
-        📺 As I'm using everything locally now, we're only waiting for the forced
-        quarter second delay, but what if we were on a slower connection, where
-        the request did take a few more moments to respond?
+        📺 As I'm using everything locally now, we're only waiting for the
+        forced quarter second delay, but what if we were on a slower connection,
+        where the request did take a few more moments to respond?
       </li>
       <li>📺 Or what if the user was on lie-fi?</li>
+      <li> 📺 They would click a link, and then see that nothing happens </li>
       <li>
-        📺 They would click a link, and then see that nothing happens
+        📺 They would likely click the link again, and again. Creating multiple
+        requests for the same thing, using up bandwidth, and almost certainly
+        registering a rage click event in your analytics
       </li>
       <li>
-        📺 They would likely click the link again, and again. Creating
-        multiple requests for the same thing, using up bandwidth, and almost
-        certainly registering a rage click event in your analytics
-      </li>
-      <li>
-        🖱 So that's what I mean when I say that the overuse of loading indicators can give the perception
-        of poor performance, because users know exactly when they're being made to wait
+        🖱 So that's what I mean when I say that the overuse of loading
+        indicators can give the perception of poor performance, because users
+        know exactly when they're being made to wait
       </li>
       <li>
         🖱 Could we combine both approaches and have the best of both worlds? 🖱
@@ -97,14 +96,13 @@
       </li>
       <li>
         📺 For users on a slow connection, they will see the loading indicator
-        after 1s, so they'll know that the website has received their input,
-        and is currently processing it
+        after 1s, so they'll know that the website has received their input, and
+        is currently processing it
       </li>
       <li>
         📺 The 1s timeout is an arbitrary value, it's really up to your
         situation what value you choose
       </li>
-      
     </ul>
   </aside>
 </section>
