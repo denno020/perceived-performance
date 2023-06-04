@@ -58,9 +58,12 @@
         </li>
         <li>
           Knowing what to pre fetch is only part of the pattern, 🖱 when to
-          pre-fetch is just as important There's a few options available to us,
-          with pro's and con's for each
+          pre-fetch is just as important
         </li>
+        <li
+          >There's a few options available to us, with pro's and con's for
+          each</li
+        >
       </ul>
     </aside>
   </section>
@@ -109,6 +112,27 @@
     </aside>
   </section>
   <section>
+    <div>
+      🏗️ Generate a recording demonstrating the pre-fetching pattern. <br />
+      I will want to delay the starting of this video to be when I've announced
+      how the yellow border is working
+    </div>
+    <aside class="notes">
+      <ul>
+        <li
+          >This time when we load up the category page, we see that all of the
+          product cards within the viewport are given the yellow border</li
+        >
+        <li
+          >Remembering that I said the yellow border means the product is in
+          cache, this means that anything with a yellow boarder should
+          immediately display product data if it's clicked on</li
+        >
+        <li>🖱 (start the recording)</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
     <h2>Pre-fetching</h2>
     <ul>
       <li
@@ -131,7 +155,7 @@
       <ul>
         <li>🖱 Are there any downsides to pre-fetching?</li>
         <li>
-          🖱 Pre-feetching is using more of the users downloda bandwith, however
+          🖱 Pre-fetching is using more of the users download bandwith, however
           if we're sticking only to downloading data, and that data is
           compressed on the server before being passed to the browser, then that
           bandwidth increase will usually be negligible
@@ -186,8 +210,7 @@
       </li>
       <li
         >A combination of these parameters will give us a reasonable
-        understanding of the connection that the user is current working
-        with</li
+        understanding of the connection that the user is currently on</li
       >
       <li>
         Another property that is available on the Network Information API is 🖱
@@ -217,11 +240,11 @@
       </li>
     </ul>
     <aside class="notes">
-      <li>Will these extra requests strain the server?</li>
+      <li>Will these extra requests 🖱 strain the server?</li>
       <li>They certainly could, especially at scale</li>
       <li>
         However, at scale, there will almost certainly be a server caching layer
-        implemented. For example, Cloudflare CDN
+        implemented. For example, Cloudflare
       </li>
       <li>
         The server caching layer acts to resolve all the requests that it has
@@ -232,7 +255,7 @@
       </li>
       <li>
         Out of scope of this talk, but just quickly, the reason the data in this
-        caching layer doesn't go stale is because it can be selectively clear,
+        caching layer doesn't go stale is because it can be selectively cleared,
         for example, when prices have been updated, product relative information
         in the caching layer can be programmatically purged, so the next request
         will hit the server

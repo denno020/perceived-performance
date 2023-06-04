@@ -1,86 +1,131 @@
+<!-- @TODO Need to check this page again - I think it's pretty much done, but need to check -->
 <section>
-  <h2>Optimistically Update UI</h2>
-  <ul>
-    <li class="fragment">Assume everything will work</li>
-    <li class="fragment" data-demo-step="7">Immediately update local state <sup>Demo 7</sup></li>
-    <li class="fragment">Downsides?
-      <ul>
-        <li class="fragment">Action fails</li>
-      </ul>
-    </li>
-  </ul>
-  <aside class="notes">
+  <section>
+    <h2>Optimistically Update UI</h2>
     <ul>
-      <li>
-        Our transition between the category page and product page is pretty
-        instantaneous now
-      </li>
-      <li>Our users are going to be very happy</li>
-      <li>
-        But what about when they add a product to cart, what does that
-        experience look like?
-      </li>
-      <li>
-        📺 Looking back at the demo website, we can see that upon clicking on the
-        Add to Cart button, the user has to wait for that API request to
-        complete, before they can be sure that the item is added to cart, and
-        then continue on with their shopping
-      </li>
-      <li>
-        Why don't we go ahead and give them that confidence to continue shopping
-        right away
-      </li>
-      <li>
-        The final perceived performance pattern I would like to touch on is
-        optimistically updating our UI
-      </li>
-      <li>
-        Optimistically being the operative word - 🖱  assume everything is going to
-        go perfectly according to plan on the server
-      </li>
-      <li>
-        If we assume that, then in the example of adding an item to cart, we can
-        🖱 manually edit our local state to make it look like the item is already
-        added
-      </li>
-      <li>
-        This gives the user immediate feedback, allowing them to go find another
-        product, or go straight to the checkout
-      </li>
-      <li>
-        Let's have a look at the updated experience with optimistic UI updating
-        implemented
-      </li>
-      <li
-        >Notice how the user can now go from looking through a list of products,
-        right through to having an item in cart, and not have had to wait for
-        anything to load at any point?
-      </li>
-      <li>I think this is a pretty great experience</li>
-      <li>
-        🖱 We should talk about the potential pitfalls to optimistically updating
-        the UI
-      </li>
-      <li>The most obvious one being, what happens if the action fails? 🖱 </li>
-      <li>
-        What happens if, in this example, the item isn't added to cart on the
-        server?
-      </li>
-      <li>
-        This is entirely possible - maybe there isn't any stock available for
-        that product, maybe there weren't enough options selected, or maybe
-        there was just some sort of internal server error
-      </li>
-      <li>
-        In all of these instances, we'll need to provide a notice to the user
-        that the item hasn't been successfully added to cart, and update the UI
-        to remove our optimistically added product
-      </li>
-      <li>
-        For the most part, I would expect these situations to be the exception
-        rather than the rule, but if there is the possibility that it might
-        happen to one user, then it's best to build a way to handle it
+      <li class="fragment">Assume everything will work</li>
+      <li class="fragment" data-demo-step="7"
+        >Immediately update local state <sup>Demo 7</sup></li
+      >
+    </ul>
+    <aside class="notes">
+      <ul>
+        <li>
+          Optimistically being the operative word - 🖱 assume everything is going
+          to go perfectly according to plan on the server
+        </li>
+        <li>
+          If we assume that, then in the example of adding an item to cart, we
+          can 🖱 manually edit our local state to make it look like the item is
+          already added
+        </li>
+        <!-- <li>
+          This gives the user immediate feedback, allowing them to go find
+          another product, or go straight to the checkout
+        </li> -->
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <div>
+      (🏗️ Display an animation of clicking Add to Cart, and waiting for the
+      minicart to appear. Display this on loop while talking about the below
+      things)
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>
+          📺 Looking back at the demo website, we can see that upon clicking on
+          the Add to Cart button, the user has to wait for that API request to
+          complete, before they can be sure that the item is added to cart, and
+          then continue on with their shopping
+        </li>
+        <li>Why make the user wait for that confirmation?</li>
+        <li>Let's go ahead and speed that interaction up</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <div
+      >🏗️ Generate a recording of a user starting on the product page, clicking
+      Add to Cart, and the minicart immediately being displayed</div
+    >
+    <aside class="notes">
+      <ul>
+        <li>The implementation of this pattern is also quite simple</li>
+        <li
+          >When the user clicks Add to Cart, as I'm using React, I just push
+          that product information directly into cart state, while also sending
+          the request to the server</li
+        >
+        <li
+          >I haven't implemented code to handle if things fail on the server,
+          which I'll touch on in a minute</li
+        >
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <div>
+      🏗️ Generate comparison recordings showing the full user journey before and
+      after, going from category page, to product page, to add to cart
+    </div>
+    <aside class="notes">
+      <ul>
+        <li>
+          With that final pattern implemented, we've now got an extremely
+          performant feeling site
+        </li>
+        <li
+          >Notice how the user can now go from looking through a list of
+          products, right through to having an item in cart, and not have had to
+          knowingly wait for anything to load at any point?
+        </li>
+        <li>I think this is a pretty great experience</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h2>Optimistically Update UI</h2>
+    <ul>
+      <li>Assume everything will work</li>
+      <li>Immediately update local state <sup>Demo 7</sup></li>
+      <li class="fragment"
+        >Downsides?
+        <ul>
+          <li class="fragment">Action fails</li>
+        </ul>
       </li>
     </ul>
-  </aside>
+    <aside class="notes">
+      <ul>
+        <li>
+          🖱 We should talk about the potential pitfalls to optimistically
+          updating the UI
+        </li>
+        <li
+          >The most obvious one being, what happens if the action fails? 🖱
+        </li>
+        <li>
+          What happens if, in this example, the item isn't added to cart on the
+          server?
+        </li>
+        <li>
+          This is entirely possible - maybe there isn't any stock available for
+          that product, maybe there weren't enough options selected, or maybe
+          there was just some sort of internal server error
+        </li>
+        <li>
+          In all of these instances, we'll need to provide a notice to the user
+          that the item hasn't been successfully added to cart, and update the
+          UI to remove our optimistically added product
+        </li>
+        <li>
+          For the most part, I would expect these situations to be the exception
+          rather than the rule, but if there is the possibility that it might
+          happen to one user, then it's best to build a way to handle it
+        </li>
+      </ul>
+    </aside>
+  </section>
 </section>

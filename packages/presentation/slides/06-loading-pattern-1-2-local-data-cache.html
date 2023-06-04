@@ -3,10 +3,6 @@
     <h2>Local Data Cache</h2>
     <ul>
       <li class="fragment">Remember what user has already seen</li>
-      <li class="fragment" data-demo-step="4"
-        >Use cached data while getting an update from server
-        <sup>Demo 4</sup></li
-      >
     </ul>
     <aside class="notes">
       <ul>
@@ -23,6 +19,18 @@
           Local data cache is simply 🖱 remembering what the user has already
           seen, and never showing a loading indicator in those contexts again
         </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <div
+      >🏗️ Generate recording of starting on the category page, clicking on a
+      product, waiting for that product page to load, then clicking back, then
+      clicking the exact same product again, waiting for that to load<br />
+      This is the slide that should enable Demo 4, not the next one</div
+    >
+    <aside class="notes">
+      <ul>
         <li>📺 Let's refer back to our demo (2) app again</li>
         <li>
           📺 First, I click on a product on the category page, the API request
@@ -37,6 +45,20 @@
           📺 We did also see a loading indicator for the category page, to show
           products that we're already seen
         </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h2>Local Data Cache</h2>
+    <ul>
+      <li class="fragment" data-demo-step="4"
+        >Use cached data while getting an update from server
+        <sup>Demo 4</sup></li
+      >
+      <li class="fragment">stale-while-revalidate</li>
+    </ul>
+    <aside class="notes">
+      <ul>
         <li>
           📺 There's no need for either of those loading indicators, we should
           be able to immediately 🖱 render the same product data that we've
@@ -45,7 +67,7 @@
           to render to the UI or just update our cache value
         </li>
         <li>
-          📺 This is the stale-while-revalidate pattern that you might have
+          📺 This is the 🖱 stale-while-revalidate pattern that you might have
           heard before
         </li>
         <li>
@@ -55,6 +77,19 @@
           pushing updated values to render to the UI, so it's super easy to take
           advantage of this pattern
         </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <div
+      >🏗️ Generate recording of starting on the category page, clicking on a
+      product, waiting for that product page to load, then clicking back, then
+      clicking on the exact same produt again, this time with the product page
+      being rendered immediately, not having to wait for it to download
+      again</div
+    >
+    <aside class="notes">
+      <ul>
         <li>
           📺 In this next demo (4), however, I'm not using Apollo or any other
           libraries, but rather I've simply written something with vanilla JS,
@@ -73,7 +108,7 @@
         <li>
           Those with keen eyes might have also noticed a yellow border that was
           added around the product card, this is just something I've added to be
-          able to visualise that is in the cache
+          able to visualise that a product is in the cache
         </li>
       </ul>
     </aside>
