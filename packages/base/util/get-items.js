@@ -11,11 +11,6 @@ export const getItems = ({ page }, opts) => {
   })
     .then((res) => res.json())
     .then((res) => {
-      // const products = loadPage(page);
-      // const pageCount = getPageCount();
-
-      // const result = { items: products, totalPages: pageCount };
-
       if (useCache) {
         cache.addToCache({
           key: `products-${page}`,
@@ -25,10 +20,4 @@ export const getItems = ({ page }, opts) => {
 
       return res;
     });
-
-  // return new Promise((res) => {
-  //   setTimeout(() => {
-  //     res(result);
-  //   }, 500);
-  // });
 };
