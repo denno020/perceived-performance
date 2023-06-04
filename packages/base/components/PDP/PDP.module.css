@@ -21,12 +21,6 @@
     padding: 0 10px;
 }
 
-@media (max-width: 649px) {
-    .container {
-        /* grid-template-rows: auto auto; */
-    }
-}
-
 @media (min-width: 650px) {
     .container {
         display: grid;
