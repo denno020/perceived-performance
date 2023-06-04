@@ -1,24 +1,34 @@
-import cache from "./cache";
+import cache from './cache';
 import { loadPage, getPageCount } from './products';
 
 export const getItems = ({ page }, opts) => {
   const { useCache } = opts;
 
-  return new Promise((res) => {
-    setTimeout(() => {
-      const products = loadPage(page);
-      const pageCount = getPageCount();
+  return fetch(`http://localhost:8888/.netlify/functions/getProducts?page=${page}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+    .then((res) => res.json())
+    .then((res) => {
+      // const products = loadPage(page);
+      // const pageCount = getPageCount();
 
-      const result = { items: products, totalPages: pageCount };
+      // const result = { items: products, totalPages: pageCount };
 
       if (useCache) {
         cache.addToCache({
           key: `products-${page}`,
-          value: JSON.stringify(result),
+          value: JSON.stringify(res)
         });
       }
 
-      res(result)
-    }, 500)
-  })
+      return res;
+    });
+
+  // return new Promise((res) => {
+  //   setTimeout(() => {
+  //     res(result);
+  //   }, 500);
+  // });
 };

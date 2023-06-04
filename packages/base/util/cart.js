@@ -2,21 +2,17 @@ import { loadItem } from './products';
 const cart = new Set();
 
 export const addToCart = (productId) => {
-  return new Promise((res) => {
+  return fetch(`/.netlify/functions/fauxAddToCart`).then(() => {
     cart.add(productId);
 
-    setTimeout(() => {
-      res({ cart: Array.from(cart).map((productId) => loadItem(Number(productId))) });
-    }, 1000);
+    return { cart: Array.from(cart).map((productId) => loadItem(Number(productId))) };
   });
 };
 
 export const clearCart = () => {
-  return new Promise((res) => {
+  return fetch(`/.netlify/functions/fauxAddToCart`).then(() => {
     cart.clear();
 
-    setTimeout(() => {
-      res({ cart: Array.from(cart) });
-    }, 1000);
+    return { cart: Array.from(cart) };
   });
 };

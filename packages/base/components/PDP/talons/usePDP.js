@@ -27,9 +27,11 @@ export const usePDP = () => {
       addToCachedProducts(product.id);
     });
 
-    getRelated().then((related) => {
-      setRelated(related);
-    });
+    fetch(`/.netlify/functions/getRelated`)
+      .then((res) => res.json())
+      .then((related) => {
+        setRelated(related);
+      });
   }, [productId]);
 
   const fetchItem = (product) => {
