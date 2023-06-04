@@ -4,7 +4,7 @@ import { loadPage, getPageCount } from './products';
 export const getItems = ({ page }, opts) => {
   const { useCache } = opts;
 
-  return fetch(`http://localhost:8888/.netlify/functions/getProducts?page=${page}`, {
+  return fetch(`/.netlify/functions/getProducts?page=${page}`, {
     headers: {
       'Content-Type': 'application/json'
     }
