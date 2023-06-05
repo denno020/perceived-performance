@@ -16,7 +16,7 @@ const AppContextProvider = (props) => {
     () => ({
       sectionId,
       useCache: [4, 5, 6, 7].includes(sectionId),
-      fetchFirst: [3, 4].includes(sectionId),
+      fetchFirst: [3].includes(sectionId),
       preFetch: [5, 6, 7].includes(sectionId),
       browserCache: [6, 7].includes(sectionId),
       optimisticUi: [7].includes(sectionId),
