@@ -22,27 +22,26 @@
       </ul>
     </aside>
   </section>
-  <section>
-    <div
-      >🏗️ Generate recording of starting on the category page, clicking on a
-      product, waiting for that product page to load, then clicking back, then
-      clicking the exact same product again, waiting for that to load<br />
-      This is the slide that should enable Demo 4, not the next one</div
-    >
+  <section
+    data-background-video="/media/local-data-cache-no-cache.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
     <aside class="notes">
       <ul>
-        <li>📺 Let's refer back to our demo (2) app again</li>
+        <li>Let's refer back to our demo (2) app again</li>
         <li>
-          📺 First, I click on a product on the category page, the API request
-          is fired off to get the product information, then when a response is
+          First, I click on a product on the category page, the API request is
+          fired off to get the product information, then when a response is
           returned, we'll render that product data
         </li>
         <li>
-          📺 If I then press the back button, and select the exact same product,
+          If I then press the back button, and select the exact same product,
           notice how we're waiting for the product data to download again?
         </li>
         <li>
-          📺 We did also see a loading indicator for the category page, to show
+          We did also see a loading indicator for the category page, to show
           products that we're already seen
         </li>
       </ul>
@@ -60,56 +59,59 @@
     <aside class="notes">
       <ul>
         <li>
-          📺 There's no need for either of those loading indicators, we should
-          be able to immediately 🖱 render the same product data that we've
-          already downloaded, and then in the background, send off the API
-          request to get updated product information, which we can then choose
-          to render to the UI or just update our cache value
+          There's no need for either of those loading indicators, we should be
+          able to immediately 🖱 render the same product data that we've already
+          downloaded, and then in the background, send off the API request to
+          get updated product information, which we can then choose to render to
+          the UI or just update our cache value
         </li>
         <li>
-          📺 This is the 🖱 stale-while-revalidate pattern that you might have
-          heard before
+          This is the 🖱 stale-while-revalidate pattern that you might have heard
+          before
         </li>
         <li>
-          📺 In my day-to-day working on ecommerce websites, we use Apollo
-          Client, which automatically handles caching data, serving up that data
-          from cache when it's requested, and also updating the cache and
-          pushing updated values to render to the UI, so it's super easy to take
+          In my day-to-day working on ecommerce websites, we use Apollo Client,
+          which automatically handles caching data, serving up that data from
+          cache when it's requested, and also updating the cache and pushing
+          updated values to render to the UI, so it's super easy to take
           advantage of this pattern
         </li>
       </ul>
     </aside>
   </section>
-  <section>
-    <div
-      >🏗️ Generate recording of starting on the category page, clicking on a
-      product, waiting for that product page to load, then clicking back, then
-      clicking on the exact same produt again, this time with the product page
-      being rendered immediately, not having to wait for it to download
-      again</div
-    >
+  <section
+    data-background-video="/media/local-data-cache.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
     <aside class="notes">
       <ul>
         <li>
-          📺 In this next demo (4), however, I'm not using Apollo or any other
+          In this next demo (4), however, I'm not using Apollo or any other
           libraries, but rather I've simply written something with vanilla JS,
           using in memory cache
         </li>
         <li>
-          📺 As we can see, the first time that we navigate to the product page,
-          we do wait a moment for the request to resolve, but the second, third
-          or any other time in the future, we see the product data instantly
+          As we can see, the first time that we navigate to the product page, we
+          do wait a moment for the request to resolve, but the second, third or
+          any other time in the future, we see the product data instantly
         </li>
         <li>
-          📺 The user doesn't need to wait again, and because we're still making
+          The user doesn't need to wait again, and because we're still making
           the same API request to get the product data, they won't be stuck with
           stale data
         </li>
         <li>
           Those with keen eyes might have also noticed a yellow border that was
-          added around the product card, this is just something I've added to be
-          able to visualise that a product is in the cache
+          added around the product card after navigating to it, this is just
+          something I've added for this presentation to be able to visualise
+          that a product is in the cache
         </li>
+        <li
+          >I have also reverted back to using the loading indicator immediately,
+          just so we can see the effect in action a bit easier</li
+        >
       </ul>
     </aside>
   </section>

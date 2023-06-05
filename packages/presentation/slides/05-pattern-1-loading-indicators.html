@@ -20,13 +20,12 @@
       </ul>
     </aside>
   </section>
-  <section>
-    <div
-      >🏗️ Create animation displaying the transition from category page to
-      product page again, with the footer pushed below the fold. Likely could
-      re-use the same animation used to demonstrate the footer being pushed
-      below the fold</div
-    >
+  <section
+    data-background-video="/media/layout-jank-footer-below-fold.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
     <aside class="notes">
       <ul>
         <li>
@@ -46,12 +45,12 @@
       </ul>
     </aside>
   </section>
-  <section>
-    <div
-      >🏗️ Create an animation display the transition from category page to
-      product page, when fetch first is enabled<br />
-      This is also where demo 3 needs to be enabled, not in the next slide
-    </div>
+  <section
+    data-background-video="/media/fetch-first-demo.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
     <aside class="notes">
       <ul>
         <li>📺 Now, let's have a look at this next example (Demo 3)🖱s</li>
@@ -65,40 +64,61 @@
         <li>📺 Did I have to wait?</li>
         <li>Did I perceive that I had to wait?</li>
         <li>📺 Which one feels faster?</li>
-        <li>📺 This is exactly the situation we had with one of our clients</li>
+        <li
+          >The timeout is still exactly the same, so it still takes effectively
+          exactly the same amount of time</li
+        >
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h2>Loading Indicators</h2>
+    <ul>
+      <li class="fragment">We used loading indicators</li>
+      <li class="fragment">Competitor waited for request to resolve</li>
+      <li class="fragment">Our requests weren't slower</li>
+      <li class="fragment">Client <em>felt</em> they were slower</li>
+      <li class="fragment">What if the network request is slow?</li>
+      <li class="fragment"
+        >Click<span class="fragment">, click</span
+        ><span class="fragment">, CLICK!</span
+        ><span class="fragment"> 🤬</span></li
+      >
+    </ul>
+    <aside class="notes">
+      <ul>
+        <li>This is exactly the situation we had with one of our clients</li>
         <li>
-          📺 They were comparing their website (that we built) with a
-          competitors website, and saying that the competitors was faster.
+          They were comparing their website (that we built) with a competitors
+          website, and saying that the competitors was faster.
         </li>
         <li>
-          📺 We were using a loading indicator as a result of all interactions
+          🖱 We were using a loading indicator as a result of all interactions
           where a user does have to wait
         </li>
-        <li>📺 The competitors website wasn't</li>
+        <li>🖱 The competitors website wasn't</li>
         <li>
-          📺 Even though, looking at the raw numbers, the rquests in the website
+          🖱 Even though, looking at the raw numbers, the rquests in the website
           we built were resolving just as fast, and sometimes faster, the client
-          felt that their site was slower, because they could see exatly when
+          🖱 felt that their site was slower, because they could see exatly when
           they were being made to wait
         </li>
         <li>
-          📺 The issue that we had with the competitors implementation, and the
+          The issue that we had with the competitors implementation, and the
           reason we didn't want to go the same route, is that when a user
           clicks, nothing actually happens until the network request resolves.
         </li>
         <li>
-          📺 As I recorded everything locally, we're only waiting for the forced
-          server delay, but what if I was on a slower connection, where the
+          As I recorded everything locally, we're only waiting for the forced
+          server delay, but what if I was on a slower connection, 🖱 where the
           request did take a few more moments to respond?
         </li>
-        <li>📺 Or what if the user was on lie-fi?</li>
-        <li> 📺 They would click a link, and then see that nothing happens </li>
+        <li>Or what if the user was on lie-fi?</li>
+        <li>They would 🖱 click a link, and then see that nothing happens </li>
         <li>
-          📺 They would likely click the link again, and again. Creating
-          multiple requests for the same thing, using up bandwidth, and almost
-          certainly registering a rage click event in your analytics<br />
-          (🏗️ Do I want to create an animation of someone clicking again and
-          again, and then an angry face emoji fading in...)
+          They would likely 🖱click the link again, and 🖱again. Creating multiple
+          requests for the same thing, using up bandwidth, and almost certainly
+          registering a 🖱 rage click event in your analytics
         </li>
       </ul>
     </aside>
@@ -109,9 +129,7 @@
       <li>Not using loading indicators</li>
       <li>Well using them sparingly <sup>Demo 2</sup></li>
       <li class="fragment">Show's exactly when a user is being made to wait</li>
-      <li class="fragment" data-demo-step="3"
-        >Best of both worlds? <sup>Demo 3</sup></li
-      >
+      <li class="fragment">Best of both worlds? <sup>Demo 3</sup></li>
     </ul>
     <aside class="notes">
       <ul>
@@ -126,35 +144,35 @@
       </ul>
     </aside>
   </section>
-  <section>
-    <div
-      >🏗️ Generate an animation showing the transition from the category page to
-      the product page, with fetch first enabled, and on a throttled network
-      connection</div
-    >
+  <section
+    data-background-video="/media/fetch-first-fallback.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
     <aside class="notes">
       <ul>
         <li
-          >📺 For this next demonstration, I made use of DevTools to throttle my
+          >For this next demonstration, I made use of DevTools to throttle my
           network connection. Neither the client nor server code has been
           changed</li
         >
         <li>
-          📺 In this combined example, we don't display a loading indicator
-          until after the user has been waiting for a period of time
+          As we can see, the click event is registered, nothing happens, then
+          after a short amount of time, a loading indicator is shown
         </li>
         <li>
-          📺 For users that have a fast connection, they won't see a loading
+          For users that have a fast connection, they won't see a loading
           indicator
         </li>
         <li>
-          📺 For users on a slow connection, they will see the loading indicator
+          For users on a slow connection, they will see the loading indicator
           after 1s, so they'll know that the website has received their input,
           and is currently processing it
         </li>
         <li>
-          📺 The 1s timeout is an arbitrary value, it's really up to your
-          situation what value you choose
+          The 1s timeout is an arbitrary value, it's really up to your situation
+          what value you choose
         </li>
       </ul>
     </aside>

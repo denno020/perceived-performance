@@ -42,11 +42,12 @@
       </ul>
     </aside>
   </section>
-  <section>
-    <div
-      >🏗️ Generate a recording demonstrating browser image that is immediately
-      displayed when moving from category page to product page</div
-    >
+  <section
+    data-background-video="/media/browser-cache.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
     <aside class="notes">
       <ul>
         <li
@@ -58,6 +59,10 @@
           following along on your own device, you might notice that the
           initially displayed image is every so slightly pixelated</li
         >
+        <li
+          >That is the category page's product image being display first, then
+          replaced - or covered - by the high resolution product page image</li
+        >
       </ul>
     </aside>
   </section>
@@ -67,9 +72,7 @@
       <li>Image is coming in late</li>
       <li>Can we make it <em>feel</em> instant without pre-fetching?</li>
       <li>Re-use already seen image</li>
-      <li data-demo-step="6"
-        >Simply re-use the same request <sup>Demo 6</sup></li
-      >
+      <li>Simply re-use the same request <sup>Demo 6</sup></li>
       <li class="fragment"
         >Downsides?
         <ul>

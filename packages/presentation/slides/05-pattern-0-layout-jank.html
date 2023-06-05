@@ -9,10 +9,6 @@
           <li class="fragment">Not an animation <sup>Demo 0</sup></li>
         </ul>
       </li>
-      <li class="fragment">Skeleton Loaders</li>
-      <li class="fragment" data-demo-step="1"
-        >Push footer to base of viewport <sup>Demo 1</sup></li
-      >
     </ul>
     <aside class="notes">
       <ul>
@@ -23,17 +19,20 @@
           page</li
         >
         <li>🖱 Not in the fun way like an animation</li>
-        <li
-          >Let's have a look at some loading frames of the demo site again to
-          see exactly what I mean</li
-        >
+        <li>Let's have a look at the demo site again</li>
+    </aside>
+  </section>
+  <section
+    data-background-video="/media/footer-layout-jank.mp4"
+    data-background-video-loop="true"
+    data-background-video-muted="true"
+    data-background-size="contain"
+  >
+    <aside class="notes">
+      <ul>
         <li
           >Starting on the category page, I'll click on a product card and
           navigate to the product page
-          <em
-            >(🏗️ Create a 3 image animation, where we display the category page,
-            then a loading PDP, then a loaded PDP)</em
-          >
         </li>
         <li
           >While the product page is loading, we can see the the footer is
@@ -45,6 +44,29 @@
           see, it's a jarring experience, and one that will influence a users
           perception of the performance of the site</li
         >
+        <li>
+          This is a better experience, but the footer is still within the
+          viewport when it potentially doesn't need to be..
+        </li>
+        <li>So let's go one step further</li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h2>Cumulative Layout Shift (CLS)</h2>
+    <ul>
+      <li>Layout jank</li>
+      <li
+        >First painted one place, next painted another
+        <ul>
+          <li>Not an animation <sup>Demo 0</sup></li>
+        </ul>
+      </li>
+      <li class="fragment">Skeleton Loaders</li>
+      <li class="fragment" data-demo-step="1">Push footer to base of viewport <sup>Demo 1</sup></li>
+    </ul>
+    <aside class="notes">
+      <ul>
         <li
           >There's a couple of ways to solve this. The best way is probably to
           make use of a 🖱 skeleton loader</li
@@ -60,22 +82,19 @@
         >
         <li>Let's see what that would look like</li>
       </ul>
-    </aside>
-  </section>
-  <section>
-    <div
-      >🏗️ Show animation of the footer having been pushed to the bottom of the
-      viewport</div
-    >
-    <aside class="notes">
-      <ul>
-        <li>
-          This is a better experience, but the footer is still within the
-          viewport when it potentially doesn't need to be..
-        </li>
-        <li>So let's go one step further</li>
       </ul>
     </aside>
+  </section>
+  <section data-background-video="/media/footer-pushed-to-bottom.mp4"
+  data-background-video-loop="true"
+  data-background-video-muted="true"
+  data-background-size="contain">
+<aside class="notes">
+  <ul>
+    <li>Here we can see that the footer renders at the bottom of the viewport while the product page content is loading</li>
+    <li>It means there isn't awkward whitespace below the footer, but there is still visible layout shift</li>
+  </ul>
+</aside>
   </section>
   <section>
     <h2>Cumulative Layout Shift (CLS)</h2>
@@ -95,17 +114,19 @@
     </ul>
     <aside class="notes">
       <ul>
-        <li>And push the footer 🖱 below the fold</li>
-        <li>Let's see what they would look like</li>
+        <li>We can go one step further and completely 🖱 remove the footer from view while the product page is loading</li>
+        <li>It's very likely that the page is going to be bigger than the current viewport height, so getting the footer out of the way now will reduce that layout jank significantly</li>
       </ul>
     </aside>
   </section>
-  <section>
-    <div>🏗️ Show animation of the footer having been pushed below the fold</div>
+  <section data-background-video="/media/layout-jank-footer-below-fold.mp4"
+  data-background-video-loop="true"
+  data-background-video-muted="true"
+  data-background-size="contain">
     <aside class="notes">
       <ul>
         <li
-          >📺Now we don't see the footer again! We can scroll down to it, but
+          >Now we don't see the footer again! We can scroll down to it, but
           othewise there is a lot less layout jank happening</li
         >
       </ul>
