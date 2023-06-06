@@ -19,7 +19,8 @@ const App = () => {
 
   useEffect(() => {
     const currentDemo = getCurrentStep();
-    if (currentDemo >= presentationStep) return;
+    // Will set Firebase to a value higher than 7 in order to prevent any of the toasts or automatic redirects
+    if (currentDemo >= presentationStep || presentationStep > 7) return;
 
     toast(`🎤 Demo ${presentationStep} available, click to update`, {
       onClick: () => {
