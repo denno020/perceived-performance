@@ -131,11 +131,23 @@
         ],
       });
 
+      Reveal.on("slidechanged", (event) => {
+        if (event.currentSlide?.dataset?.demoStep) {
+          set(stepRef, {
+            step: Number(event.currentSlide.dataset.demoStep),
+            isDenno: true,
+          });
+        }
+      });
+
       // When a fragment is shown, check if there is a demo-step data atribute, which will indicate
       // that guests can move to the next step in the demo app
       Reveal.on("fragmentshown", (event) => {
         if (event.fragment.dataset?.demoStep) {
-          set(stepRef, { step: Number(event.fragment.dataset.demoStep), isDenno: true })
+          set(stepRef, {
+            step: Number(event.fragment.dataset.demoStep),
+            isDenno: true,
+          });
         }
       });
     </script>
