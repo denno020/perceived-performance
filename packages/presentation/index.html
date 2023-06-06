@@ -141,6 +141,10 @@
             isDenno: true,
           });
         }
+
+        // Slow video down..
+        const videos = document.querySelectorAll("video");
+        Array.from(videos).forEach((video) => (video.playbackRate = 0.75));
       });
 
       // When a fragment is shown, check if there is a demo-step data atribute, which will indicate
