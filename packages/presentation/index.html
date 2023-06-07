@@ -86,6 +86,12 @@
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      if (location.search.includes("notesme")) {
+        localStorage.setItem("notesme", true);
+        location.href = "/";
+      }
+    </script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
       import {
@@ -118,7 +124,9 @@
       Reveal.initialize({
         hash: true,
         slideNumber: "c/t",
-        showNotes: "separate-page",
+        ...(localStorage.getItem("notesme") && {
+          showNotes: "separate-page",
+        }),
         pdfSeparateFragments: false,
 
         // Learn about plugins: https://revealjs.com/plugins/
