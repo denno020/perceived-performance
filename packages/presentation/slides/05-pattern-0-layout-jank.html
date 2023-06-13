@@ -10,17 +10,6 @@
         </ul>
       </li>
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>Affectionately known as 🖱 layout jank</li>
-        <li
-          >🖱Effectively when elements are painted to the browser, but then are
-          re-painted into a different location as things are loaded into the
-          page</li
-        >
-        <li>🖱 Not in the fun way like an animation</li>
-        <li>Let's have a look at the demo site again</li>
-    </aside>
   </section>
   <section
     data-background-video="/media/footer-layout-jank.mp4"
@@ -28,24 +17,6 @@
     data-background-video-muted="true"
     data-background-size="contain"
   >
-    <aside class="notes">
-      <ul>
-        <li
-          >The recording shows us starting on the category page, clicking on a product card and
-          navigating to the product page
-        </li>
-        <li
-          >While the product page is loading, we can see the the footer is
-          sitting right up underneath the loading indicator, then gets pushed
-          down when the content has loaded in</li
-        >
-        <li
-          >As I'm sure those of you who are following along on your device can
-          see, it's a jarring experience, and one that will influence a users
-          perception of the performance of the site</li
-        >
-      </ul>
-    </aside>
   </section>
   <section>
     <h2>Cumulative Layout Shift (CLS)</h2>
@@ -60,40 +31,11 @@
       <li class="fragment">Skeleton Loaders</li>
       <li class="fragment" data-demo-step="1">Push footer to base of viewport <sup>Demo 1</sup></li>
     </ul>
-    <aside class="notes">
-      <ul>
-        <li
-          >There's a couple of ways to solve this. The best way is probably to
-          make use of a 🖱 skeleton loader</li
-        >
-        <li
-          >Skeleton loaders both hold the space for incoming data, and also
-          convey to the user that something is loading</li
-        >
-        <li>But we can do something even simpler</li>
-        <li
-          >We can use CSS to 🖱push the footer to the bottom of the viewport,
-          which makes for a slightly neater experience</li
-        >
-        <li>Let's see what that would look like</li>
-      </ul>
-      </ul>
-    </aside>
   </section>
   <section data-background-video="/media/footer-pushed-to-bottom.mp4"
   data-background-video-loop="true"
   data-background-video-muted="true"
   data-background-size="contain">
-<aside class="notes">
-  <ul>
-    <li>Here we can see that the footer renders at the bottom of the viewport while the product page content is loading</li>
-    <li>
-      This is a better experience, but the footer is still within the
-      viewport when it potentially doesn't need to be..
-    </li>
-    <li>So let's go one step further</li>
-  </ul>
-</aside>
   </section>
   <section>
     <h2>Cumulative Layout Shift (CLS)</h2>
@@ -111,25 +53,11 @@
         >Push footer below the fold <sup>Demo 2</sup></li
       >
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>Let's completely 🖱 remove the footer from view while the product page is loading</li>
-        <li>It's very likely that the page is going to be bigger than the current viewport height, so getting the footer out of the way now will reduce that layout jank significantly</li>
-      </ul>
-    </aside>
   </section>
   <section data-background-video="/media/layout-jank-footer-below-fold.mp4"
   data-background-video-loop="true"
   data-background-video-muted="true"
   data-background-size="contain">
-    <aside class="notes">
-      <ul>
-        <li
-          >Now we don't see the footer again! We can scroll down to it, but
-          othewise there is a lot less layout jank happening</li
-        >
-      </ul>
-    </aside>
   </section>
   <section>
     <h2>Cumulative Layout Shift (CLS)</h2>
@@ -151,20 +79,5 @@
         </ul>
       </li>
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>🖱Downsides?</li>
-        <li
-          >If your page really is 🖱 short on content, then the footer will
-          forever remain below the fold, and there could be a large amount of
-          white space</li
-        >
-        <li
-          >This can be fixed by reverting to pushing the footer to the baseline
-          of the viewport when content has finished loading, which is layout
-          jank, but I would expect that's not going to happen too often</li
-        >
-      </ul>
-    </aside>
   </section>
 </section>

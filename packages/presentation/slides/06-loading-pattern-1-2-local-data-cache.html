@@ -6,24 +6,6 @@
         >Remember what user has already seen <sup>(Demo 2)</sup></li
       >
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>
-          Now they aren't really directly related, however the use of local data
-          cache will mean that we can prevent our users from having to see
-          loading indicators more than necessary
-        </li>
-        <li>
-          and by introducing it now, I can bridge the gap to the patterns we'll
-          talk about in a few minutes
-        </li>
-        <li>
-          Local data cache is simply 🖱 remembering what the user has already
-          seen, and never showing a loading indicator in those contexts again
-        </li>
-        <li>Let's refer back to our demo (2) app again</li>
-      </ul>
-    </aside>
   </section>
   <section
     data-background-video="/media/local-data-cache-no-cache.mp4"
@@ -31,23 +13,6 @@
     data-background-video-muted="true"
     data-background-size="contain"
   >
-    <aside class="notes">
-      <ul>
-        <li>
-          First, I click on a product on the category page, the API request is
-          fired off to get the product information, then when a response is
-          returned, we'll render that product data
-        </li>
-        <li>
-          If I then press the back button, and select the exact same product,
-          notice how we're waiting for the product data to download again?
-        </li>
-        <li>
-          We did also see a loading indicator for the category page, to show
-          products that we're already seen
-        </li>
-      </ul>
-    </aside>
   </section>
   <section>
     <h2>Local Data Cache</h2>
@@ -60,33 +25,6 @@
       <li class="fragment">Apollo Client</li>
       <li class="fragment">Vanilla JS, in memory</li>
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>
-          There's no need for either of those loading indicators, we should be
-          able to immediately 🖱 render the same product data that we've already
-          downloaded, and then in the background, send off the API request to
-          get updated product information, which we can then choose to render to
-          the UI or just update our cache value
-        </li>
-        <li>
-          This is the 🖱 stale-while-revalidate pattern that you might have heard
-          before
-        </li>
-        <li>
-          In my day-to-day working on ecommerce websites, we use Apollo Client,
-          which automatically handles caching data, serving up that data from
-          cache when it's requested, and also updating the cache and pushing
-          updated values to render to the UI, so it's super easy to take
-          advantage of this pattern
-        </li>
-        <li>
-          In this next demo (4), however, I'm not using Apollo or any other
-          libraries, but rather I've simply written something with vanilla JS,
-          using in memory cache
-        </li>
-      </ul>
-    </aside>
   </section>
   <section
     data-background-video="/media/local-data-cache.mp4"
@@ -94,30 +32,6 @@
     data-background-video-muted="true"
     data-background-size="contain"
   >
-    <aside class="notes">
-      <ul>
-        <li>
-          As we can see, the first time that we navigate to the product page, we
-          do wait a moment for the request to resolve, but the second, third or
-          any other time in the future, we see the product data instantly
-        </li>
-        <li>
-          The user doesn't need to wait again, and because we're still making
-          the same API request to get the product data, they won't be stuck with
-          stale data
-        </li>
-        <li>
-          Those with keen eyes might have also noticed a yellow border that was
-          added around the product card after navigating to it, this is just
-          something I've added for this presentation to be able to visualise
-          that a product is in the cache
-        </li>
-        <li
-          >I have also reverted back to using the loading indicator immediately,
-          just so we can see the effect in action a bit easier</li
-        >
-      </ul>
-    </aside>
   </section>
   <section>
     <h2>Local Data Cache</h2>
@@ -143,28 +57,6 @@
     </code></pre>
       </li>
     </ul>
-    <aside class="notes">
-      <ul>
-        <li
-          >Now I did say that the actual code wasn't the important part of this
-          talk, but I wanted to show just how straight forward it is to set up
-          this pattern using vanilla JS and your library of choice</li
-        >
-        <li>🖱 This is the code that I've used to implement cache</li>
-        <li
-          >There's no magic within cache, it's just a singleton that has some
-          methods on it to set and get items</li
-        >
-        <li
-          >🖱 Then this is all we need to read from cache and initialise
-          state.</li
-        >
-        <li
-          >As I mentioned earlier, I'm using React to render the app, so that's
-          why the use of useState here</li
-        >
-      </ul>
-    </aside>
   </section>
   <section>
     <h2>Local Data Cache</h2>
@@ -183,40 +75,5 @@
         >Swap cache object for read/write to storage location</li
       >
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>
-          Local data cache can either be the method I just used, stored all in
-          memory, meaning if a user leaves the website and comes back, or
-          maually refreshes the page, all of that cache is cleared
-        </li>
-        <li>🖱 or persisted onto the users device</li>
-        <li>
-          Persistence is a great idea, because it gives return visitors
-          immediate perceived performance, but we do have to factor in things
-          like available storage on the users device
-        </li>
-        <li>
-          🖱 We're not storing compressed data, meaning the space on disk can't
-          be minimised like it is within the network transfer to download the
-          data, so we have to be wary to pick a technology that affords us
-          enough space
-        </li>
-        <li>
-          The obvious options would be 🖱 localStorage or 🖱 sessionStorage, but
-          be aware that there is a limit of only around 5mb that can be stored
-          in these locations
-        </li>
-        <li>
-          A better approach could actually be 🖱 IndexedDB, or if you have a
-          service worker installed, the 🖱 Cache API, both of which have access
-          to much, much more storage space
-        </li>
-        <li>
-          🖱 Then we just need to swap out our in memory cache singleton for an
-          interface to the storage method of choice
-        </li>
-      </ul>
-    </aside>
   </section>
 </section>
