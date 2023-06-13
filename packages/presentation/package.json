@@ -103,6 +103,7 @@
   },
   "dependencies": {
     "eslint": "^8.42.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.7",
+    "through2": "^4.0.2"
   }
 }
