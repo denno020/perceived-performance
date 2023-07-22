@@ -11,36 +11,6 @@
         >Simply re-use the same request <sup>Demo 6</sup></li
       >
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>
-          We've enhanced our app to make loading a product page nearly feel
-          instantaneous
-        </li>
-        <li>🖱 The image is clearly coming in late though</li>
-        <li>
-          📺 We've decided against pre-fetching images, because we don't want to
-          potentially waste our users bandwidth, 🖱 so how can we make the image
-          feel instant?
-        </li>
-        <li>Well that's where we can lean on the browser cache</li>
-        <li>
-          The browser has already seen an image for this product, on the
-          category page
-        </li>
-        <li>
-          Why don't we just 🖱 re-use that exact image as a placeholder for the
-          product page, while the main, high resolution image is being
-          downloaded?
-        </li>
-        <li>
-          This technique is incredibly simple, all we have to do is request the
-          🖱 same image path that we requested when on the category page, and the
-          browser will automatically use the image that is stored in cache
-        </li>
-        <li>🖱 Demo (6)</li>
-      </ul>
-    </aside>
   </section>
   <section
     data-background-video="/media/browser-cache.mp4"
@@ -48,23 +18,6 @@
     data-background-video-muted="true"
     data-background-size="contain"
   >
-    <aside class="notes">
-      <ul>
-        <li
-          >As we can see, clicking on a product card will immediately render a
-          seemingly complete product page</li
-        >
-        <li
-          >It might not be as obvious here on the screen, but if you're
-          following along on your own device, you might notice that the
-          initially displayed image is every so slightly pixelated</li
-        >
-        <li
-          >That is the category page's product image being display first, then
-          replaced - or covered - by the high resolution product page image</li
-        >
-      </ul>
-    </aside>
   </section>
   <section>
     <h2>Leveraging Browser Cache</h2>
@@ -81,28 +34,5 @@
         </ul>
       </li>
     </ul>
-    <aside class="notes">
-      <ul>
-        <li>🖱Downsides?</li>
-        <li>
-          There's only two that I can think of, 🖱 depending on the resolution of
-          image that is required on the product page, the cached image that is
-          displayed as a placeholder could appear exceptionally pixelated
-        </li>
-        <li>
-          I don't think this is that big of a deal though, as it would just
-          appear like a progressively loaded JPG, with the benefit of holding
-          the vertical space for the high resolution image to come in
-        </li>
-        <li>
-          Another potential issue is if the main image used on your product page
-          is 🖱 different to the image used on the category page
-        </li>
-        <li>
-          Where in your control, I would advise against doing this, though, as
-          it could confuse users
-        </li>
-      </ul>
-    </aside>
   </section>
 </section>
