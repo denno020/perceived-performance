@@ -15,6 +15,57 @@
         </ul>
       </li>
     </ul>
+    <aside class="notes">
+      <ul>
+        <li>
+          Before we get into the patterns, I want to quickly explain the demo
+          website that we're going to be enhancing throughout the presentation
+        </li>
+        <li
+          >The recordings of the demo app were made with everything hosted on my
+          machine 🖱, including the server.</li
+        >
+        <li>
+          The app is rendered using React🖱 , however all the enhancements we're
+          going to make are done using 🖱 vanilla JS
+        </li>
+        <li>
+          The reason for this is because the actual code implementation of the
+          patterns isn't the important part of the talk, so I wanted to show
+          that it's not reliant on any frameworks
+        </li>
+        <li>
+          As all code was on my machine, that meant that network requests would
+          be instant, so I added a slight 🖱 delay into the server code to
+          replicate a delay that would be felt if we were actually hitting the
+          Internet and waiting for a response
+        </li>
+        <li>
+          Using frameworks might make some of this raw code simpler, but I'll
+          leave that up to you to play around with in your specific stacks
+        </li>
+        <li
+          >🖱 I'm going to show you all the starting point of the app in a
+          second</li
+        >
+        <li
+          >But first, I wanted to make this presentation as interactive as
+          possible, by not only showing the patterns up on screen here, but also
+          letting you experience them first hand, so the demo app that we're
+          working with up on screen, is available to you right now 🖱</li
+        >
+        <li>
+          For people watching on the video, the URL is going to be
+          perceivedperformance.lukedenton.dev, but for everyone here and now,
+          you can just use wdc.lukedenton.dev
+        </li>
+        <li
+          >As we work through the presentation, the app on your device will
+          automatically tell you when the next demo is available, so you can
+          stay in sync with what I'm showing up on the screen</li
+        >
+      </ul>
+    </aside>
   </section>
   <section
     data-background-video="/media/base.webm"
@@ -22,5 +73,26 @@
     data-background-video-muted="true"
     data-background-size="contain"
   >
+    <aside class="notes">
+      <ul>
+        <li>Here we go with the starting point of our ecommerce website</li>
+        <li
+          >We're starting out in what would be considered a pretty strong point
+          for an ecommerce store to be at</li
+        >
+        <li
+          >We have the ability to navigate to a product page, add an item to
+          cart, and load a second page of products</li
+        >
+        <li
+          >You'll notice that every time there is a click, a prple circle
+          appears around the cursor</li
+        >
+        <li
+          >This is to help illustrate the different patterns as we move through
+          them</li
+        >
+      </ul>
+    </aside>
   </section>
 </section>

@@ -23,6 +23,58 @@
       <li class="fragment">Skip images/media, unless absolutely sure</li>
       <li class="fragment">When to pre-fetch?</li>
     </ul>
+    <aside class="notes">
+      <ul>
+        <li>
+          The goal of this pattern is to 🖱 prevent the user from having to wait
+          🖱 at all, giving the user the experience of visiting the product page
+          the second time, but without having yet visited it
+        </li>
+        <li>
+          Pre-fetching is simply downloading resources before the user has asked
+          for them, so that when they are asked for, they're already downloaded
+          and can be instantly shown to the user
+        </li>
+        <li>What kinds of things could we pre-fetch?</li>
+        <li>
+          🖱 Literally anything can be pre-fetched,🖱 however we do want to
+          consider our users experience and situation before going ahead and
+          pre-fetching everything
+        </li>
+        <li>
+          🖱 For example, optimistically pre-fetching data is perfectly fine.
+          That data will be compressed on the server and then sent to the
+          browser to be uncompressed and rendered
+        </li>
+        <li>
+          That data could include a second page of products, or a specific
+          products' data
+        </li>
+        <li>
+          Pre-fetching JS/CSS files could also be a good option, especially if
+          we've made use of code splitting, and we can anticipate the next route
+          that a user is going to go to
+        </li>
+        <li>
+          🖱 Pre-fetching images and other media, however, carries a lot more
+          weight in terms of bandwidth, so it would usually be a bad idea to
+          pre-fetch, especially if we're not sure if the user is going to see it
+        </li>
+        <li>
+          If we know that the user absolutely has to see the image or media in
+          order to continue, then go right ahead and pre-fetch, but otherwise
+          it's not a good idea to optimistically pre-fetch images or other media
+        </li>
+        <li>
+          Knowing what to pre fetch is only part of the pattern, 🖱 when to
+          pre-fetch is just as important
+        </li>
+        <li
+          >There's a few options available to us, with pro's and con's for
+          each</li
+        >
+      </ul>
+    </aside>
   </section>
   <section>
     <h2>Prefetching</h2>
@@ -34,6 +86,39 @@
         >Based on Viewport <sup>Demo 5</sup></li
       >
     </ul>
+    <aside class="notes">
+      <ul>
+        <li
+          >One of the easiest options to implement is immediate pre-fetching</li
+        >
+        <li
+          >By immediate, I mean pre-fetching as soon as you know what the data
+          on the other end would look like</li
+        >
+        <li
+          >In this example, that would be as soon as I know all of the products
+          that are rendered on the category page, as they're the products that a
+          user will click to get to the product page</li
+        >
+        <li>Next is when the 🖱 network is idle</li>
+        <li
+          >This one is a little trickier to implement, it involves waiting until
+          the network isn't doing anything else (that would likely be higher
+          priority), and then start pre-fetching</li
+        >
+        <li>Making a call as to when the network is idle is the tricky part</li>
+        <li
+          >Another option, and one that I've gone with in this demo, is to only
+          pre-fetch products whose product cards are 🖱 rendered within the
+          viewport</li
+        >
+        <li
+          >A user can only realistically click on a product card that is within
+          the viewport, so we can be confident that anything outside of the
+          viewport isn't going to be used</li
+        >
+      </ul>
+    </aside>
   </section>
   <section
     data-background-video="/media/pre-fetching.mp4"
@@ -41,6 +126,19 @@
     data-background-video-muted="true"
     data-background-size="contain"
   >
+    <aside class="notes">
+      <ul>
+        <li
+          >This time when we load up the category page, we see that all of the
+          product cards within the viewport are given the yellow border</li
+        >
+        <li
+          >Remembering that I said the yellow border means the product is in
+          cache, this means that anything with a yellow boarder should
+          immediately display product data if it's clicked on</li
+        >
+      </ul>
+    </aside>
   </section>
   <section>
     <h2>Pre-fetching</h2>
@@ -65,6 +163,35 @@
         </ul>
       </li>
     </ul>
+    <aside class="notes">
+      <ul>
+        <li>🖱 Are there any downsides to pre-fetching?</li>
+        <li>
+          🖱 Pre-fetching is using more of the users download bandwith, however
+          if we're sticking only to downloading data, and that data is
+          compressed on the server before being passed to the browser, then that
+          bandwidth increase will usually be negligible
+        </li>
+        <li>
+          Consider keeping track of what has been pre-fetched, so you're not
+          pre-fetching the same thing twice
+        </li>
+        <li
+          >🖱 As mentioned earlier, there are storage limitations within the
+          browser</li
+        >
+        <li>🖱 A user is on a slow connection</li>
+        <li>
+          In this instance, we might want to alter our pre-fetching strategy
+          depending on the users connection.
+        </li>
+        <li>
+          For example, if they have a good connection, then we might be a little
+          more optimistic in pre-fetching, but if they have a poor connection,
+          then we might be a little more conservative 🖱
+        </li>
+      </ul>
+    </aside>
   </section>
   <section>
     <h2>Pre-fetching</h2>
@@ -84,6 +211,27 @@
       <li class="fragment">saveData</li>
       <li class="fragment">Compute Pressure API</li>
     </ul>
+    <aside class="notes">
+      <li>
+        We can check the users connection using the Network Information API,
+        which exposes the property 🖱 effectiveType.
+      </li>
+      <li>This will give a value of 🖱 "slow-2g", 🖱 "2g", 🖱 "3g" or 🖱 "4g".</li>
+      <li>
+        We could also use the 🖱 type value to determine if the user is likely on
+        a metered connection or not
+      </li>
+      <li
+        >A combination of these parameters will give us a reasonable
+        understanding of the connection that the user is currently on</li
+      >
+      <li>
+        Another property that is available on the Network Information API is 🖱
+        saveData, which tells the browser if the user has explicitly said that
+        they are saving data, in which case, as responsible developers, we would
+        disable any pre-fetching.
+      </li>
+    </aside>
   </section>
   <section>
     <h2>Pre-fetching</h2>
@@ -109,5 +257,27 @@
         </ul>
       </li>
     </ul>
+    <aside class="notes">
+      <li>Will these extra requests 🖱 strain the server?</li>
+      <li>They certainly could, especially at scale</li>
+      <li>
+        However, at scale, there will almost certainly be a server caching layer
+        implemented. For example, Cloudflare
+      </li>
+      <li>
+        The server caching layer acts to resolve all the requests that it has
+        seen before, so multiple users being on a category page, that is
+        automatically pre-fetching the next page of products, will onlly hit the
+        app server once, with the cache layer serving the response for all other
+        users
+      </li>
+      <li>
+        Out of scope of this talk, but just quickly, the reason the data in this
+        caching layer doesn't go stale is because it can be selectively cleared,
+        for example, when prices have been updated, product relative information
+        in the caching layer can be programmatically purged, so the next request
+        will hit the server
+      </li>
+    </aside>
   </section>
 </section>
