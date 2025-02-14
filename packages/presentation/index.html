@@ -144,6 +144,12 @@
       });
 
       Reveal.on("slidechanged", (event) => {
+        if (event.indexh === 1 && event.indexv === 0) {
+          set(stepRef, {
+            step: 0,
+            isDenno: true,
+          });
+        }
         if (event.currentSlide?.dataset?.demoStep) {
           set(stepRef, {
             step: Number(event.currentSlide.dataset.demoStep),
