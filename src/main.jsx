@@ -2,7 +2,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "../packages/base/components/App";
-import '../packages/base/util/firebase';
+import "../packages/base/util/firebase";
 import "../packages/base/css/styles.css";
 import "./index.css";
 import "./fonts.css";
