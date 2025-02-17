@@ -1,13 +1,13 @@
 <section>
-  <h2>Closing</h2>
+  <h2>Recap & Key Takeaways</h2>
   <ul>
     <li class="fragment">All done in browser</li>
+    <li class="fragment">Progressive enhancement</li>
     <li class="fragment">Many ways to influence user perception</li>
     <li class="fragment">Raw metrics aren't everything</li>
     <li class="fragment"
       >SEO<span class="fragment">, <em>sort of</em></span>
     </li>
-    <li class="fragment">Thank you</li>
   </ul>
   <aside class="notes">
     <ul>
@@ -19,11 +19,20 @@
         >The server delay wasn't adjusted, simply choosing to load things a
         little bit earlier makes our website feel like a native app</li
       >
+      <li
+        >It's not about applying just the best pattern, but rather having
+        multiple layers incase something isn't available</li
+      >
+      <li>
+        For example, if a user has saveData turned on, then we won't be
+        pre-fetching, in which case we'll probably fall back to the delayed
+        loading indicator pattern
+      </li>
       <li>
         🖱 These aren't the only ways to improve perceived performance. For
         example, I didn't touch on using resource hints, I didn't touch on how
         to measure the perceived performance improvements, I didn't touch on
-        third party scripts like InstantClick
+        third party scripts like Instant Page
       </li>
       <li>
         🖱 My hope with this presentation is to give you a little bit of

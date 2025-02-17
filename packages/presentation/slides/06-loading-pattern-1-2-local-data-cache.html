@@ -56,9 +56,6 @@
         >Use cached data while getting an update from server
         <sup>Demo 4</sup></li
       >
-      <li class="fragment">stale-while-revalidate</li>
-      <li class="fragment">Apollo Client</li>
-      <li class="fragment">Vanilla JS, in memory</li>
     </ul>
     <aside class="notes">
       <ul>
@@ -68,22 +65,6 @@
           downloaded, and then in the background, send off the API request to
           get updated product information, which we can then choose to render to
           the UI or just update our cache value
-        </li>
-        <li>
-          This is the 🖱 stale-while-revalidate pattern that you might have heard
-          before
-        </li>
-        <li>
-          In my day-to-day working on ecommerce websites, we use Apollo Client,
-          which automatically handles caching data, serving up that data from
-          cache when it's requested, and also updating the cache and pushing
-          updated values to render to the UI, so it's super easy to take
-          advantage of this pattern
-        </li>
-        <li>
-          In this next demo (4), however, I'm not using Apollo or any other
-          libraries, but rather I've simply written something with vanilla JS,
-          using in memory cache
         </li>
       </ul>
     </aside>
@@ -116,6 +97,39 @@
           >I have also reverted back to using the loading indicator immediately,
           just so we can see the effect in action a bit easier</li
         >
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h2>Local Data Cache</h2>
+    <ul>
+      <li
+        >Use cached data while getting an update from server
+        <sup>Demo 4</sup></li
+      >
+      <li class="fragment">stale-while-revalidate</li>
+      <li class="fragment"
+        >React Query - <span class="fragment"><code>queryKey</code></span></li
+      >
+      <li class="fragment">Vanilla JS, in memory</li>
+    </ul>
+    <aside class="notes">
+      <ul>
+        <li>
+          This is the 🖱 stale-while-revalidate pattern that you might have heard
+          before
+        </li>
+        <li>
+          Reacty query has local caching available OOTB, based on the queryKey.
+          I won't dive into the mental model for React Query and how the key
+          works to control cache, perhaps we can circle back to it at the end or
+          save it for a future React Query deep dive
+        </li>
+        <li>
+          In this next demo (4), however, I'm not using React Query or any other
+          libraries, rather I've simply written something with vanilla JS, using
+          in memory cache
+        </li>
       </ul>
     </aside>
   </section>
@@ -169,7 +183,7 @@
   <section>
     <h2>Local Data Cache</h2>
     <ul>
-      <li>In memory or persisted</li>
+      <li>In memory only or with persistence</li>
       <li class="fragment"
         >How to persist
         <ul>
@@ -180,7 +194,7 @@
         </ul>
       </li>
       <li class="fragment"
-        >Swap cache object for read/write to storage location</li
+        >Update cache object to also read/write to storage location</li
       >
     </ul>
     <aside class="notes">
@@ -216,6 +230,41 @@
           🖱 Then we just need to swap out our in memory cache singleton for an
           interface to the storage method of choice
         </li>
+      </ul>
+    </aside>
+  </section>
+  <section>
+    <h2>NCP</h2>
+    <p>Clicked around looking for loading indicators</p>
+    <ul>
+      <li class="fragment">Bills</li>
+      <li class="fragment">Payments</li>
+      <li class="fragment">Recipients</li>
+      <li class="fragment">Accounts</li>
+      <li class="fragment"
+        ><em class="fragment">Not</em> Cards
+        <span class="fragment">💪</span></li
+      >
+    </ul>
+    <aside class="notes">
+      <ul>
+        <li>
+          I clicked around in the app to see how many loading indicators I could
+          find
+        </li>
+        <li>
+          The following pages show a loading indicator every time a user clicks
+          on them
+        </li>
+        <li
+          >Bills, Payments, Recipients, Accounts; All show a loading indicator
+          every time a user clicks on the menu</li
+        >
+        <li
+          >Cards, on the other hand, will only show a loading indicator the
+          first time</li
+        >
+        <li>Well done Cards team</li>
       </ul>
     </aside>
   </section>
